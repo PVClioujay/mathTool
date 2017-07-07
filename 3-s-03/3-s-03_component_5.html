@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0069)http://120.108.208.84/ntcu-nbnat/ntcu_test_tools/data_show.php?num=87 -->
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow-x: hidden;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title id="title">3-s-03</title>
+    <script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
+    <script src="../js/jquery-ui.js" type="text/javascript"></script>
+    <script src="../js/jQueryRotate.js" type="text/javascript"></script>
+    <script src="../js/jquery.colorbox.js"></script>
+    <link rel="stylesheet" href="../js/jquery-ui.min.css">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../js/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="../css/colorbox.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- 畫布 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+        <script src="images/flip.js"></script>
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+            crossorigin="anonymous">
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+                crossorigin="anonymous"></script>
+                <script type="text/javascript" src="../js/pvc_script.js"></script>
+</head>
+
+<body cz-shortcut-listen="true">
+    <div class="title">
+        能使用圓規畫圓，認識圓的圓心、圓周、半徑與直徑。
+    </div>
+    <table class="exam">
+        <tbody>
+            <tr>
+                <!--左側-->
+                <td class="question">
+                    <!--題目-->
+                    <div class="text">
+                        <br>
+                        <span style="font-size:20pt; text-align:center; "><img src="../images/question.gif" style="float: left;">我們可以利用圓形圖卡，找出圓的圓心、半徑和直徑。請試著將圓形圖卡對摺兩次，找出圓心和半徑。
+                        </span>
+                        <br>
+                        <button class="btn btn-primary" id="fk_cgText" style="margin-left: 40px; font-size:20pt;">對摺</button>
+                        <br>
+                    </div>
+                    <!--題目End-->
+                </td>
+            </tr>
+            <!--左側 end-->
+            <tr>
+                <!--右側-->
+                <td>
+                    <img id="icon_A" src="../images/answer.gif">
+                    <!--作答區-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+
+                                <div id="circle">
+
+                                    <img src="images/c_full.png" alt="c_full" id="c_full">
+
+                                    <div class="c1">
+                                        <img src="images/c1.png" alt="c1">
+                                        <div class="selGroup" id="select1">
+                                            <select id="coc">
+                                                <option value="default">請選擇</option>
+                                                <option value="coc">圓心</option>
+                                                <option value="radius">半徑</option>
+                                                <option value="diameter">直徑</option>
+                                                <option value="circumference">圓周</option>
+                                            </select>
+                                            <span class="wrong">X</span>
+                                        </div>
+                                    </div>
+                                    <div class="c2">
+                                        <img src="images/c2.png" alt="c2">
+                                        <div class="selGroup" id="select2">
+                                            <select id="radius">
+                                                <option value="default">請選擇</option>
+                                                <option value="coc">圓心</option>
+                                                <option value="radius">半徑</option>
+                                                <option value="diameter">直徑</option>
+                                                <option value="circumference">圓周</option>
+                                            </select>
+                                            <span class="wrong">X</span>
+                                        </div>
+                                    </div>
+                                    <div class="c3">
+                                        <img src="images/c3.png" alt="c3">
+                                        <div class="selGroup" id="select3">
+                                            <select id="diameter">
+                                                <option value="default">請選擇</option>
+                                                <option value="coc">圓心</option>
+                                                <option value="radius">半徑</option>
+                                                <option value="diameter">直徑</option>
+                                                <option value="circumference">圓周</option>
+                                            </select>
+                                            <span class="wrong">X</span>
+                                        </div>
+                                    </div>
+                                    <div class="finalPic">
+                                        <img src="images/c4.png" alt="c4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 答案作答區 -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <style>      
+        #circle {
+            width: 580px;
+            height: 550px;
+            margin: 0px auto;
+            background-size: cover;
+            position: relative;
+        }  
+
+        #c_full{
+            width: 550px;
+            height: 510px;
+        }
+
+        .c1, .c3, .c2{
+            display: none;
+        }
+
+        .c1, .c2{
+            width: 558px;
+            height: 412px;
+        }
+        .c3{
+            width: 340px;
+            height: 575px;
+        }
+
+        .c3 img{
+             width: 100% !important;
+             height: 100% !important;
+        }
+
+        .c2, .c3 {
+            display: none;
+        }
+        .finalPic{
+            display: none;
+            width: 550px;
+            height: 510px;
+        }
+        .finalPic img{
+            width: 100% !important;
+            height: 100% !important;    
+        }
+        .selGroup {
+            position: absolute;
+            width: 130px;
+        }
+        
+        .selGroup select {
+            font-size: 21pt;
+            border: 1px solid black;
+        }
+
+        #select1{
+            top: 185px;
+            left: 520px;
+        }
+
+        #select2{
+            top: 64px;
+            left: 460px;
+        }
+
+        #select3{
+             top: 103px;
+             left: 324px;
+        }
+        
+        .wrong {
+            font-size: 18pt;
+            color: red;
+            display: none;
+        }
+        
+        .submit {
+            margin-top: 50px;
+        }
+    </style>
+
+    <script>
+        var coc = document.querySelector("#coc");
+        var circumference = document.querySelector("#circumference");
+        var radius = document.querySelector("#radius");
+        var diameter = document.querySelector("#diameter");
+
+        var coc_bool, circumference_bool, radius_bool, diameter_bool = false;
+
+        $("#cgText").text("2");
+
+        $("#fk_cgText").click(function(){
+            if($("#c_full").attr('src') == 'images/c_full.png' && $(this).text() == '對摺'){
+                $("#c_full").attr('src', 'images/c_half.png');
+                $("#c_full").css('width', '255px');
+                return;
+            }
+            if($("#c_full").attr('src') == 'images/c_half.png' && $(this).text() == '對摺'){
+                // $("#c_full").attr('src', 'images/c_qutor.png');
+                $(".c1").show();
+                $("#c_full").hide();
+                
+                $(this).css('display', 'none');
+                return;
+            }
+
+            if($(this).text() == '展開'){
+                $('.c3').show();
+                $(".c2").remove();
+                $(this).css('display', 'none');
+            }
+
+            
+        })
+
+        let lv = 0;
+
+        $(coc).change(function () {
+            if ($(this).val() != "coc") {
+                $("#select1 .wrong").show();
+                coc_bool = false;
+                console.log("www"+coc.options[coc.selectedIndex].innerText);
+                respons("這個不是"+ coc.options[coc.selectedIndex].innerText+"，再想想")
+            } else {
+                coc_bool = true;
+                lv = 1;
+                // $(".c2").show();
+                // $(".c1").remove();
+                $("#select1 .wrong").hide();
+                 $(this).attr("disabled", "disabled");
+            }
+        })
+
+        $(radius).change(function () {
+            if ($(this).val() != "radius") {
+                $("#select2 .wrong").show();
+                radius_bool = false;
+                
+                respons("這個不是" + radius.options[radius.selectedIndex].innerText + "，再想想")
+            } else {
+                radius_bool = true;
+                $("#select2 .wrong").hide();
+                lv = 2;
+                // $(".c3").show();
+                // $(".c2").remove();
+                $(".text span").text('');
+                $(".text span").append('<img src="../images/question.gif" style="float: left;">請試著將<img src="images/image_102.png" alt="1/4"/>圓展開一次，找出直徑');
+                $("#fk_cgText").text("展開");
+                $("#fk_cgText").css("display",'block');
+                $(this).attr("disabled", "disabled");
+            }
+        })
+
+        $(diameter).change(function () {
+            if ($(this).val() != "diameter") {
+                $("#select3 .wrong").show();
+                diameter_bool = false;
+                respons("這個不是" + diameter.options[diameter.selectedIndex].innerText + "，再想想")
+            } else {
+                $("#select3 .wrong").hide();
+                diameter_bool = true;
+                $(this).attr("disabled", "disabled");
+            }
+        })
+
+       
+
+
+        function go_next() {
+            if($("#fk_cgText").css('display') != 'none'){
+                return respons("請依照題目敘述操作")
+            }
+            if (getURLParameter("auto") == 1) {
+                if (radius_bool && diameter_bool && coc_bool ) {
+                    ajaxInsertData();
+                    Location.href = "3-s-03_component_3.html?auto=1";
+                } else { respons("請作答完畢") }
+            } else {
+                if (radius_bool && diameter_bool && coc_bool && $(".finalPic").css("display") != 'none') {
+                    ajaxInsertData();
+                    responsEnd("答對了");
+                    return;
+                } else {
+                   if ($("img[alt=c1]").attr('src') == 'images/c1.png' && coc_bool == true) {
+                        $(".c2").show();
+                       $(".c1").remove();
+                       return;
+                   }
+
+                   if ($("img[alt=c3]").attr('src') == 'images/c3.png' && diameter_bool == true) {
+                       $("#select3 .wrong").hide();
+                       $(".c3").remove();
+                       $(".finalPic").show();
+                       $("#icon_A").hide();
+                       $(".text span").text('');
+                       $(".text span").append('由下面的圖中，我們可以發現黃色線段就是「直徑」，兩條直徑的交點就是「圓心」，而圓心到圓周的距離綠色線段的就是「半徑」。');
+                       return;
+                   }
+                     respons("請檢查答案是否有錯")
+                 }
+            }
+        }
+    </script>
+
+
+    <div class="button">
+        <!--<div class="back"><a onclick="go_back()" title="回上一步">回上一步</a></div>
+		<div class="clean"><a onclick="cl_area()" title="清除本題所有作答內容">清除本題所有作答內容</a></div>
+		<div class="showobj" id="showRecord"><a onclick="show_record()">顯示輸入步驟</a></div>-->
+        <div class="submit"><a onclick="go_next()" title="作答完畢，往下一題">作答完畢</a></div>
+    </div>
+</body>
+
+</html>

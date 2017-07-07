@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0069)http://120.108.208.84/ntcu-nbnat/ntcu_test_tools/data_show.php?num=87 -->
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow-x: hidden;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title id="title">3-s-03</title>
+    <script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
+    <script src="../js/jquery-ui.js" type="text/javascript"></script>
+    <script src="../js/jQueryRotate.js" type="text/javascript"></script>
+    <script src="../js/jquery.colorbox.js"></script>
+    <link rel="stylesheet" href="../js/jquery-ui.min.css">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../js/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="../css/colorbox.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- 畫布 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+        <script src="images/flip.js"></script>
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+            crossorigin="anonymous">
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+                crossorigin="anonymous"></script>
+                <script type="text/javascript" src="../js/pvc_script.js"></script>
+</head>
+
+<body cz-shortcut-listen="true">
+    <div class="title">
+        能使用圓規畫圓，認識圓的圓心、圓周、半徑與直徑。
+    </div>
+    <table class="exam">
+        <tbody>
+            <tr>
+                <!--左側-->
+                <td class="question">
+                    <!--題目-->
+                    <div class="text">
+                        <br>
+                        <span style="font-size:20pt; text-align:center; "><img src="../images/question.gif" style="float: left;">請你找找看，下列圖形中哪些是圓形？</span>
+                        <br>
+                    </div>
+                    <!--題目End-->
+                </td>
+            </tr>
+            <!--左側 end-->
+            <tr>
+                <!--右側-->
+                <td>
+                    <img src="../images/answer.gif">
+                    <!--作答區-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div id="ansArea">
+                                    <div id="triangle"></div>
+                                    <div id="circle1"></div>
+                                    <div id="heart"></div>
+                                    <!--<div id="circle2"></div>-->
+                                    <div id="fuckface"></div>
+                                    <div id="uncomplecircle"></div>
+                                    <div id="rectangle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 答案作答區 -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <style>
+        #ansArea {
+            position: relative;
+            width: 900px;
+            height: 465px;
+            margin: 0px auto;
+        }
+        
+        #ansArea div {
+            margin: 10px;
+            /*padding: 10px; */
+        }
+        
+        #ansArea div:hover {
+            cursor: pointer;
+            /*padding: 10px; */
+        }
+        
+        #triangle {
+            display: inline-block;
+            background: url(images/triangle.png) no-repeat;
+            width: 152px;
+            height: 132px;
+            background-size: cover;
+        }
+        
+        #circle1 {
+            display: inline-block;
+            background: url(images/circle1.png) no-repeat;
+            width: 153px;
+            height: 153px;
+            background-size: cover;
+        }
+        
+        #heart {
+            display: inline-block;
+            background: url(images/heart.png) no-repeat;
+            width: 196px;
+            height: 138px;
+            background-size: cover;
+        }
+        
+        #circle2 {
+            display: inline-block;
+            background: url(images/circle2.png) no-repeat;
+            width: 182px;
+            height: 146px;
+            background-size: cover;
+        }
+        
+        #fuckface {
+            display: inline-block;
+            background: url(images/fuckface.png) no-repeat;
+            width: 140px;
+            height: 140px;
+            background-size: cover;
+        }
+        
+        #uncomplecircle {
+            display: inline-block;
+            background: url(images/uncomplecircle.png) no-repeat;
+            width: 191px;
+            height: 176px;
+            background-size: cover;
+        }
+        
+        #rectangle {
+            background: url(images/rectangle.png) no-repeat;
+            width: 259px;
+            height: 136px;
+            display: inline-block;
+            background-size: cover;
+        }
+        
+        .submit {
+            margin-top: 50px;
+        }
+    </style>
+
+    <script>
+        var triangle_bool = circle1_bool = circle2_bool = heart_bool = uncomplecircle_bool = rectangle_bool = fuckface_bool = false;
+
+
+        $("#ansArea div").click(function () {
+            let getElemId = $(this).attr("id");
+            console.log(getElemId);
+            switch (getElemId) {
+                case "triangle":
+
+                    if (triangle_bool == false) {
+                        $("#" + getElemId).css("border", "4px solid red");
+                        triangle_bool = true;
+                        // respons("error")
+                    } else {
+                        $("#" + getElemId).css("border", "0px");
+                        triangle_bool = false;
+                        // respons("error")
+                    }
+
+                    break;
+                case "circle1":
+                    if (circle1_bool == false) {
+                        $("#" + getElemId).css("border", "4px solid red");
+                        circle1_bool = true;
+                        // respons("Yes");
+                    } else {
+                        $("#" + getElemId).css("border", "0px");
+                        circle1_bool = false;
+                    }
+                    break;
+                case "circle2":
+                    if (circle2_bool == false) {
+                        $("#" + getElemId).css("border", "4px solid red");
+                        circle2_bool = true;
+                        // respons("Yes");
+                    } else {
+                        $("#" + getElemId).css("border", "0px");
+                        circle2_bool = false;
+
+                    }
+                    break;
+                case "heart":
+                    if (heart_bool == false) {
+                        $("#" + getElemId).css("border", "4px solid red");
+                        heart_bool = true;
+                        // respons("error")
+                    } else {
+                        $("#" + getElemId).css("border", "0px");
+                        heart_bool = false;
+                    }
+                    break;
+                case "fuckface":
+                    if (fuckface_bool == false) {
+                        $("#" + getElemId).css("border", "4px solid red");
+                        fuckface_bool = true;
+                        // respons("Yes");
+                    } else {
+                        $("#" + getElemId).css("border", "0px");
+                        fuckface_bool = false;
+                    }
+                    break;
+                case "uncomplecircle":
+                    if (uncomplecircle_bool == false) {
+                        $("#" + getElemId).css("border", "4px solid red");
+                        uncomplecircle_bool = true;
+                        // respons("error")
+                    } else {
+                        $("#" + getElemId).css("border", "0px");
+                        uncomplecircle_bool = false;
+                        //   respons("error")
+                    }
+                    break;
+                case "rectangle":
+                    if (rectangle_bool == false) {
+                        $("#" + getElemId).css("border", "4px solid red");
+                        rectangle_bool = true;
+                        // respons("error")
+                    } else {
+                        $("#" + getElemId).css("border", "0px");
+                        rectangle_bool = false;
+                        // respons("error")
+                    }
+                    break;
+            }
+        })
+
+        function go_next() {
+            if (getURLParameter("auto") == 1) {
+                if (triangle_bool == true || heart_bool == true || uncomplecircle_bool == true || rectangle_bool == true) {
+                    respons("這裡面沒有圓形歐!");
+                } else if (circle1_bool == true && fuckface_bool == true) {
+                    ajaxInsertData();
+                    location.href = "3-s-03_component_2.html?auto=1";
+                } else {
+                    respons("這裡面沒有圓形歐!")
+                }
+            } else {
+                if (triangle_bool == true || heart_bool == true || uncomplecircle_bool == true || rectangle_bool == true) {
+                    respons("這裡面沒有圓形歐!")
+                } else if (circle1_bool == true && fuckface_bool == true) {
+                    ajaxInsertData();
+                    location.href = "3-s-03_component_2.html";
+                } else {
+                    respons("這裡面沒有圓形歐!")
+                }
+            }
+        }
+    </script>
+
+
+    <div class="button">
+        <!--<div class="back"><a onclick="go_back()" title="回上一步">回上一步</a></div>
+		<div class="clean"><a onclick="cl_area()" title="清除本題所有作答內容">清除本題所有作答內容</a></div>
+		<div class="showobj" id="showRecord"><a onclick="show_record()">顯示輸入步驟</a></div>-->
+        <div class="submit"><a onclick="go_next()" title="作答完畢，往下一題">作答完畢</a></div>
+    </div>
+</body>
+
+</html>

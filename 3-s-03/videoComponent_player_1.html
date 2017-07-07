@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3-s-03教學影片</title>
+    <script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
+    <script src="../js/jquery-ui.js" type="text/javascript"></script>
+    <script src="../js/jQueryRotate.js" type="text/javascript"></script>
+    <script src="../js/colorbox/jquery.colorbox.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../css/colorbox.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/jquery-ui.css" />
+    <script src="jquery.ui.touch-punch.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+        <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+            crossorigin="anonymous">
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+                <script src="../js_function/formula_function.js"></script>
+                <!-- 載入計算機function  -->
+                <script src="../js_function/input_by_formula.js"></script>
+                <script type="text/javascript" src="../js/pvc_script.js "></script>
+                <!-- 點選input時，跳出燈箱，然後用計算機選擇輸入值 -->
+                <script src="../js_function/goback_result.js"></script>
+                <!-- 顯示步驟與輸入步驟 -->
+                <script src="../js_function/rotation_type.js"></script>
+                <!-- 物件順時針或逆時針逆時鐘 -->
+                <script src="../js_function/canvas_funtion.js"></script>
+                <!-- 畫布 -->
+                <link rel="stylesheet" href="../components/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+                <link rel="stylesheet" href="../components/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+                <script src="../components/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+                <!--步驟說明-->
+                <script src="../js/jquery.tabSlideOut.v1.3.js"></script>
+                <style>
+                    body {
+                        background: url(../images/content-topbg.png) repeat-x top #fff;
+                    }
+                    
+                    #chapter_area {
+                        position: relative;
+                        top: 40px;
+                    }
+                    
+                    #next_chapter {
+                        float: right;
+                    }
+                    
+                    #next_chapter {
+                        background-color: #4CAF50;
+                        margin-right: 25px;
+                        box-shadow: 3px 3px 6px #888888;
+                        width: 100px;
+                        height: 30px;
+                    }
+                    
+                    #next_chapter {
+                        font-size: 15pt;
+                        color: white;
+                        text-decoration: none;
+                        margin: 0 auto;
+                    }
+                    
+                    #next_chapter> p {
+                        text-align: center;
+                    }
+                    
+                    .center {
+                        margin: 0 auto;
+                        width: 400px;
+                    }
+                    
+                    .video_wrapper {
+                        display: inline-block;
+                        width: 920px;
+                        height: 200px;
+                        /* transform: translateX(50px); */
+                        margin-top: 55px;
+                        margin-left: 115px;
+                    }
+                    
+                    .video_wrapper video {
+                        width: 100% !important;
+                        height: auto !important;
+                    }
+                </style>
+                </style>
+                <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+    <div id="dialog-error" title="" style="display:none;">
+        <p>懂了嗎？</p>
+    </div>
+    <div class="title">
+        <span>能使用圓規畫圓，認識圓的圓心、圓周、半徑與直徑</span>
+
+    </div>
+    <div class="container">
+
+        <div class="video_wrapper">
+            <video id="video" autoplay controls class="embed-responsive-item" src="media/3-s-06_com1.mp4"></video>
+        </div>
+
+    </div>
+    <script>
+        document.getElementById('video').addEventListener('ended', myHandler, false);
+
+        function myHandler(e) {
+            $("#dialog-error").dialog({
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                    我懂了: function () {
+                        location.href = "3-s-03_component_2.html";
+                    },
+                    再看一次: function () {
+                        $(this).dialog("close");
+                        document.getElementById('video').currentTime = 0;
+                        document.getElementById('video').play();
+                    }
+                }
+            });
+            $(".ui-dialog-titlebar-close").remove();
+            let chiBtn = $(".ui-dialog-buttonset").children("button");
+            chiBtn.attr("class", "btn btn-primary");
+            $(".ui-dialog-titlebar-close").remove();
+            $(".ui-dialog-titlebar").remove();
+        }
+    </script>
+</body>
+
+</html>

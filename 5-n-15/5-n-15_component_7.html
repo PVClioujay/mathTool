@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0069)http://120.108.208.84/ntcu-nbnat/ntcu_test_tools/data_show.php?num=93 -->
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow-x: hidden;">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title id="title">5-n-15_7</title>
+	<script type="text/javascript" src="./images/jquery-1.10.1.min.js"></script>
+	<script src="./images/jquery-ui.js" type="text/javascript"></script>
+	<script src="./images/jQueryRotate.js" type="text/javascript"></script>
+	<script type="text/javascript" src="../js/pvc_script.js	"></script>
+
+	<script src="./images/jquery.colorbox.js"></script>
+	<link rel="stylesheet" href="./images/jquery-ui.theme.min.css">
+	<link rel="stylesheet" href="./images/colorbox.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="./images/jquery-ui.min.css">
+	<script src="./images/formula_function.js"></script>
+	<!-- 載入計算機function  -->
+	<script src="./images/input_by_formula.js"></script>
+	<!-- 點選input時，跳出燈箱，然後用計算機選擇輸入值 -->
+	<script src="./images/goback_result.js"></script>
+	<!-- 顯示步驟與輸入步驟 -->
+	<script src="./images/rotation_type.js"></script>
+	<!-- 物件順時針或逆時針逆時鐘 -->
+	<script src="./images/canvas_funtion.js"></script>
+	<!-- 畫布 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<script language="javascript">
+		var drag_sw_obj_array = new Array(); //可拖曳跟選轉的物件
+		var drag_sw_obj_ration_val = new Array(); //物件目前的旋轉角度
+		var drag_sw_obj_flag_type_array = new Array(); //拖曳物件的旗標狀態 => true代表需要紀錄選轉角度
+		var front_xPos_array = new Array(); //obj 一開始offset的x軸
+		var front_yPos_array = new Array(); //obj 一開始offset的y軸
+		var mouseStillDown = false;
+		var d_time = 100; //物件選轉的數度，如果速度太快或太慢，請調整此值
+		var total_record_array = new Array(); //紀錄步驟
+		var first_record_array = new Array(); //紀錄上一步驟
+		var directly_record_array = new Array(); //直式計算區，紀錄上一步驟
+		var del_obj_id_array = new Array();
+		var obj_fraction_sw_input_area = ""; //分數數入器輸出的目標欄位
+		var clone_obj_directinput_num_1 = 0; //拖曳、複製的文字輸入框
+		var sw_type_dsc = ""; //目前直式作答區的計算符號的設定值
+
+		for (var x = 0; x < 0; x++) {
+			directly_record_array.push(new Array());
+			directly_record_array[x].push("");
+		}
+
+		//========================================================================
+		//可拖曳選轉物件宣告
+		$(function() {});
+
+
+		//================================================================================================================
+		//繪圖區
+		var canvas_up_array = new Array(0);
+		var context_up_array = new Array(0);
+		var canvas_down_array = new Array(0);
+		var context_down_array = new Array(0);
+		var color_dsc = "";
+
+		//var background_dsc = "images/grid.png";
+		function initialize() {
+
+
+		}
+
+		//使用html 5 的繪圖區
+		jQuery(window).load(function() {
+			initialize(); //畫布初始化
+			set_cover_area(); //設定畫布覆蓋區
+			chg_tools("tools");
+		});
+		//專門用來取得覆蓋畫布的位置
+		var cover_top = 0;
+		var cover_left = 0;
+
+		function set_cover_area() {}
+
+		//繪圖或拖曳
+		var tool_type_dsc = "tools";
+
+		function chg_tools(tools_dsc) {
+			switch (tools_dsc) {
+				case "tools":
+					$("#sw_tools").attr("class", "select");
+					$("#sw_pen").attr("class", "");
+
+
+					for (var x = 0; x < drag_sw_obj_array.length; x++) {
+						$("#" + drag_sw_obj_array[x]).zIndex(1);
+					}
+					for (var x = 0; x < clone_obj_directinput_num_1; x++) {
+						$("#d_direct_input_text_div_" + x).zIndex(1);
+					}
+					tool_type_dsc = "tools";
+					break;
+				case "pen":
+					$("#sw_tools").attr("class", "");
+					$("#sw_pen").attr("class", "select");
+
+
+					//所有可拖曳附件
+					for (var x = 0; x < drag_sw_obj_array.length; x++) {
+						$("#" + drag_sw_obj_array[x]).zIndex(-1);
+					}
+					//所有的可拖曳文字輸入框
+					for (var x = 0; x < clone_obj_directinput_num_1; x++) {
+						$("#d_direct_input_text_div_" + x).zIndex(-1);
+					}
+					tool_type_dsc = "pen";
+					break;
+			}
+		}
+
+		//=================================
+		//繪圖區回上一步驟
+		function re_write(tar_idex) {
+			switch (tar_idex) {}
+		}
+		//==================================================================
+		//顏色改變
+
+		//===========================================================================
+		function cl_area() { //清除作答區所有資料
+			var answer = confirm("請確認是否清除本題所有的算式？");
+			if (answer) {
+				total_record_array = new Array();
+				first_record_array = new Array();
+				$('#showRecord').hide();
+				for (var x = 0; x < 0; x++) {
+					$('#input_' + x).val("");
+				}
+				for (var x = 0; x < del_obj_id_array.length; x++) {
+					$('#' + del_obj_id_array[x]).remove();
+				}
+				//將所有可以拖曳跟選轉的物件歸位、角度歸零
+				for (var x = 0; x < drag_sw_obj_array.length; x++) {
+					$("#" + drag_sw_obj_array[x]).rotate(0);
+					if (front_xPos_array[x] != "" && front_yPos_array[x] != "") {
+						$("#" + drag_sw_obj_array[x]).offset({
+							top: front_yPos_array[x],
+							left: front_xPos_array[x]
+						});
+					}
+				}
+				for (var x = 0; x < drag_sw_obj_ration_val.length; x++) {
+					drag_sw_obj_ration_val[x] = 0;
+				}
+				//將所有可以拖曳跟選轉的物件歸位、角度歸零 end
+
+				del_obj_id_array = new Array();
+
+				initialize(); //畫布初始化
+				set_cover_area(); //設定畫布覆蓋區
+				chg_tools("tools");
+				hide_all_obj_area();
+			}
+		}
+		//==========================================================================
+		//顯示操作者的操作動作
+		var del_time = 500;
+
+		function show_record() {
+			if (total_record_array.length > 0) {
+				for (var x = 0; x < 0; x++) {
+					$('#input_' + x).val("");
+				}
+				for (var x = 0; x < del_obj_id_array.length; x++) {
+					$('#' + del_obj_id_array[x]).remove();
+				}
+				//將所有可以拖曳跟選轉的物件歸位、角度歸零
+				for (var x = 0; x < drag_sw_obj_array.length; x++) {
+					$("#" + drag_sw_obj_array[x]).rotate(0);
+					if (front_xPos_array[x] != "" && front_yPos_array[x] != "") {
+						$("#" + drag_sw_obj_array[x]).offset({
+							top: front_yPos_array[x],
+							left: front_xPos_array[x]
+						});
+					}
+				}
+				for (var x = 0; x < drag_sw_obj_ration_val.length; x++) {
+					drag_sw_obj_ration_val[x] = 0;
+				}
+				//將所有可以拖曳跟選轉的物件歸位、角度歸零 end
+
+				del_obj_id_array = new Array();
+
+
+				initialize(); //畫布初始化
+				set_cover_area(); //設定畫布覆蓋區
+				chg_tools("tools");
+				hide_all_obj_area();
+				for (var x = 0; x < total_record_array.length; x++) {
+					setTimeout("reload_input(" + x + ")", del_time);
+					del_time = del_time + 500;
+				}
+
+			}
+		}
+
+		//直式作答區的js
+		//除式作答區的js
+	</script>
+
+
+	<!--步驟說明-->
+	<script src="./images/jquery.tabSlideOut.v1.3.js"></script>
+	<script>
+		$(function() {
+			$('.slide-out-div').tabSlideOut({
+				tabHandle: '.handle', //class of the element that will become your tab
+				pathToTabImage: 'images/slide.png', //path to the image for the tab //Optionally can be set using css
+				imageHeight: '140px', //height of tab image           //Optionally can be set using css
+				imageWidth: '35px', //width of tab image            //Optionally can be set using css
+				tabLocation: 'right', //side of screen where tab lives, top, right, bottom, or left
+				speed: 300, //speed of animation
+				action: 'click', //options: 'click' or 'hover', action to trigger animation
+				topPos: '250px', //position from the top/ use if tabLocation is left or right
+				leftPos: '20px', //position from left/ use if tabLocation is bottom or top
+				fixedPosition: true //options: true makes it stick(fixed position) on scroll
+			});
+		});
+		//=================================================================
+		//初始化直尺、三角板、圓規
+		function default_tools(obj_id) {
+			$("#showRecord").show();
+			/*
+			1.物件原本隱藏時，顯示
+			2.物件原本顯示時，隱藏
+			*/
+			if ($('#' + obj_id).css('display') == 'none') {
+				//物件目前為隱藏狀態=>顯示物件
+				first_record_array.push("show_tools||" + obj_id + "||");
+				total_record_array.push("show_tools||" + obj_id + "||");
+				show_set_tools(obj_id);
+			} else {
+				//物件目前為顯示狀態=>隱藏物件
+				first_record_array.push("hide_tools||" + obj_id + "||");
+				total_record_array.push("hide_tools||" + obj_id + "||");
+				hide_set_tools(obj_id);
+			}
+
+		}
+
+		function show_set_tools(obj_id) {
+			$("#" + obj_id).show();
+			var offset = $(document).scrollTop();
+			var viewportWidth = jQuery(window).width(),
+				viewportHeight = jQuery(window).height();
+			$("#" + obj_id).offset({
+				top: (offset + (viewportHeight / 2)),
+				left: ((viewportWidth / 2) - $("#" + obj_id).width())
+			});
+		}
+
+		function hide_set_tools(obj_id) {
+			$("#" + obj_id).offset({
+				top: "",
+				left: ""
+			});
+			$("#" + obj_id).hide();
+		}
+
+
+		//下面是用來處理工具區的拖曳元件
+		function default_drag_obj(show_obj_id, hide_obj_id) {
+			$("#showRecord").show();
+			//物件目前為隱藏狀態=>顯示物件
+			first_record_array.push("show_drag_obj||" + show_obj_id + "||" + hide_obj_id);
+			total_record_array.push("show_drag_obj||" + show_obj_id + "||" + hide_obj_id);
+			show_set_drag_obj_show(show_obj_id, hide_obj_id);
+		}
+
+		function show_set_drag_obj_show(show_obj_id, hide_obj_id) {
+			$("#" + show_obj_id).show();
+			$("#" + hide_obj_id).hide();
+			var offset = $(document).scrollTop();
+			var viewportWidth = jQuery(window).width(),
+				viewportHeight = jQuery(window).height();
+			$("#" + show_obj_id).offset({
+				top: (offset + (viewportHeight / 2)),
+				left: ((viewportWidth / 2) - $("#" + show_obj_id).width())
+			});
+
+		}
+
+		function hide_set_drag_obj_show(show_obj_id, hide_obj_id) {
+			$("#" + show_obj_id).offset({
+				top: "",
+				left: (jQuery(window).width() + $('#' + show_obj_id).width())
+			});
+			//$("#"+show_obj_id).hide();
+			$("#" + hide_obj_id).show();
+		}
+
+		//下面控制直式、除式作答區的顯示
+		function switch_obj_area(target_obj, obj_2_type, record_type) {
+			$("#showRecord").show();
+
+			switch (target_obj) {
+				case "obj_2": //直式作答區
+					var old_sw = $('#select_obj_area').html();
+					if (record_type) {
+						total_record_array.push("switch_obj_area||obj_2||" + obj_2_type);
+						if ($('#obj_3_area').css('display') != 'none' && document.getElementById("obj_3_area")) {
+							first_record_array.push("switch_obj_area||obj_2_area||obj_3_area||" + old_sw);
+						} else {
+							//判斷直式作答區是否已經顯示
+							if ($('#obj_2_area').css('display') == 'none') {
+								first_record_array.push("switch_obj_area||obj_2_area||||" + old_sw);
+							} else {
+								first_record_array.push("switch_obj_area||||||" + old_sw);
+							}
+						}
+					}
+					$('#select_obj_area').empty().append(obj_2_type);
+					$('#obj_2_area').show();
+					$('#obj_3_area').hide();
+					break;
+				case "obj_3": //除式作答區
+					if (record_type) {
+						total_record_array.push("switch_obj_area||obj_3||");
+						if ($('#obj_2_area').css('display') != 'none' && document.getElementById("obj_2_area")) {
+							first_record_array.push("switch_obj_area||obj_3_area||obj_2_area||");
+						} else {
+							first_record_array.push("switch_obj_area||obj_3_area||||");
+						}
+					}
+					$('#obj_2_area').hide();
+					$('#obj_3_area').show();
+					break;
+			}
+		}
+
+		function hide_all_obj_area() {
+			$('#obj_2_area').hide();
+			$('#obj_3_area').hide();
+		}
+	</script>
+
+	<!--計算機跟隨畫面滾動-->
+	<script>
+		// 當網頁載入完
+		$(window).load(function() {
+			hide_all_obj_area();
+			var $win = $(window),
+				$ad = $('#abgne_float').css('opacity', 0).show(), // 讓廣告區塊變透明且顯示出來
+				_width = $ad.width(),
+				_height = $ad.height(),
+				_diffY = 90,
+				_diffX = 60, // 距離右及上方邊距
+				_moveSpeed = 500; // 移動的速度
+
+			// 先把 #abgne_float 移動到定點
+			$ad.css({
+				top: _diffY, // 往上
+				left: $win.width() - _width - _diffX,
+				opacity: 1
+			});
+
+			// 幫網頁加上 scroll 及 resize 事件
+			$win.bind('scroll resize', function() {
+				var $this = $(this);
+
+				// 控制 #abgne_float_ad 的移動
+				$ad.stop().animate({
+					top: $this.scrollTop() + _diffY, // 往上
+					left: $this.scrollLeft() + $this.width() - _width - _diffX
+				}, _moveSpeed);
+			}).scroll(); // 觸發一次 scroll()
+
+		});
+
+
+
+
+	</script>
+</head>
+
+<body cz-shortcut-listen="true">
+	<div id="dialog-error" title="">
+		<p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>請在(□)填入數字</p>
+	</div>
+	<div id="MathJax_Message" style="display: none;"></div>
+	<!--編碼-->
+	<div class="title">
+		能解決時間的乘除計算問題
+	</div>
+
+
+	<table class="exam" style="width:80%;">
+		<tbody>
+			<tr>
+				<!--左側-->
+				<td class="question">
+					<!--題目-->
+					 <div class="text">
+
+						<p>
+						<img src="../../../images/question.gif" style="float: left;">
+							<span >便利商店微波加熱一個烤雞要3分鐘，那麼也可以說成是加熱幾秒鐘呢？請根據下列步驟求出答案。</span>
+						</p>
+
+					</div>
+					<!--題目End-->
+				</td>
+
+
+			</tr>
+			<!--左側 end-->
+
+			<tr>
+				<!--右側-->
+				<td>
+					<!--作答區-->
+					<img src="../../../images/answer.gif">
+                <div id="answer" class="answer">
+						<!-- 圖片物件 -->
+						<!-- 繪圖物件 -->
+						<!-- 橫式作答區 -->
+						<!-- 直式作答區 -->
+						<!-- 除式作答區 -->
+						<div>
+							<span id="Lv_1">1分鐘= (<input type="text" id="step1"></input>) 秒</span><br><br>
+							<span id="Lv_2">60 × (<input type="text" id="step2"></input>) = (<input type="text" id="step2-1"></input>)</span><br>
+							<br><span id="ans">答:(<input type="text" id="step4"></input>)秒</span>
+						</div>
+					</div>
+					<!-- 答案作答區 -->
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<style>
+	 .exam{ width:80%; }
+		#step1,
+		#step2,
+		#step2-1,
+		#step4 {
+			border: 1px solid;
+			width: 50px;
+			text-align: center;
+		}
+	</style>
+	<style>
+		.ui-dialog-buttonset {
+			margin: 0px 150px;
+		}
+
+		#ans {
+			right: 650px;
+		}
+	</style>
+	<script>
+		var Score = 0;
+		var tmp_UserArray = [];
+		var Time = new Date();
+		Time = Time.getHours() + ":" + Time.getMinutes() + ":" + Time.getMilliseconds();
+		var jsonArr = {
+			items: []
+		};
+		$("#dialog-error").hide();
+
+		$("#Lv_1-1").hide();
+		$("#Lv_2").hide();
+		$("#Lv_2-1").hide();
+		$("#ans").hide();
+
+		$("#step4").attr("disabled", 'disabled');
+		$("#step2").attr("disabled", 'disabled');
+		$("#step2-1").attr("disabled", 'disabled');
+		$("#step1").change(function() {
+			if ($(this).val() == 60) {
+				$("#Lv_2").show();
+				$("#Lv_2-1").show();
+				$(this).attr("disabled", "disabled");
+				$("#step2").removeAttr("disabled");
+				$("#step2-1").removeAttr("disabled");
+				tmp_UserArray.push(Time);
+				tmp_UserArray.push($(this).attr("id"));
+				tmp_UserArray.push($(this).val());
+				console.log(tmp_UserArray);
+				Score = Score + 1;
+				jsonArr.items.push({
+					indicate: "5-n-15-S07",
+					time: Time,
+					id: $(this).attr("id"),
+					value: $(this).val()
+				});
+			} else {$(this).val("");
+				respons("想一想，1分鐘有幾秒？");
+			};
+
+			if (Score == 4) {
+				$(".submit").show();
+			}
+		})
+		$("#step2").change(function() {
+			if ($(this).val() == 3) {
+				$(this).attr("disabled", "disabled");
+				$("#step4").removeAttr("disabled");
+				tmp_UserArray.push(Time);
+				tmp_UserArray.push($(this).attr("id"));
+				tmp_UserArray.push($(this).val());
+				console.log(tmp_UserArray);
+				Score = Score + 1;
+				jsonArr.items.push({
+					indicate: "5-n-15-S07",
+					time: Time,
+					id: $(this).attr("id"),
+					value: $(this).val()
+				});
+			} else {$(this).val("");
+				respons("再看一次題目，微波烤雞需要的時間是多久？");
+			};
+
+			if (Score == 4) {
+				$(".submit").show();
+			}
+		})
+		$("#step2-1").change(function() {
+			if ($(this).val() == 180) {
+				$("#ans").show();
+				$(this).attr("disabled", "disabled");
+				tmp_UserArray.push(Time);
+				tmp_UserArray.push($(this).attr("id"));
+				tmp_UserArray.push($(this).val());
+				console.log(tmp_UserArray);
+				Score = Score + 1;
+				jsonArr.items.push({
+					indicate: "5-n-15-S07",
+					time: Time,
+					id: $(this).attr("id"),
+					value: $(this).val()
+				});
+			} else {$(this).val("");
+				respons("計算錯誤，請再算一次。");
+			};
+
+			if (Score == 4) {
+				$(".submit").show();
+			}
+		})
+		$("#step4").change(function() {
+			if ($(this).val() == 180) {
+				$(this).attr("disabled", "disabled");
+				tmp_UserArray.push(Time);
+				tmp_UserArray.push($(this).attr("id"));
+				tmp_UserArray.push($(this).val());
+				console.log(tmp_UserArray);
+				Score = Score + 1;
+				jsonArr.items.push({
+					indicate: "5-n-15-S07",
+					time: Time,
+					id: $(this).attr("id"),
+					value: $(this).val()
+				});
+			}else{$(this).val("");
+				return respons("請再看計算結果");
+			}
+			if (Score == 4) {
+				$(".submit").show();
+			}
+		})
+		function go_next(){
+			if ($("#step4").val() == 180 && $("input").val != "") {
+				        ajaxInsertData();
+                if(getURLParameter("auto") == 1){
+                    location.href = "videoComponent_player_4-1.html";
+                }else{
+                    responsEnd("恭喜你完成了!挑戰成功!");
+                }
+					//location.href = "videoComponent_player_4-1.html"
+			}else{
+				return respons("請在(□)中作答");
+			}
+
+			if($("#step1").val() != "60"){
+				return respons("請在(□)中作答");
+			}
+			if( $("#step2").val() != "3"){
+				return respons("請在(□)中作答");
+			}
+			if( $("#step2-1").val() != "180"){
+				return respons("計算錯誤，請再算一次。");
+			}
+			if($("#step4").val() != "180"){return respons("請再看計算結果");}
+		}
+	</script>
+	<div class="button">
+		<!--<div class="back"><a onclick="go_back()" title="回上一步">回上一步</a></div>
+		<div class="clean"><a onclick="cl_area()" title="清除本題所有作答內容">清除本題所有作答內容</a></div>
+		<div class="showobj" id="showRecord"><a onclick="show_record()">顯示輸入步驟</a></div>-->
+		<br><div class="submit"><a onclick="go_next()" title="作答完畢">作答完畢</a></div>
+	</div>
+	<!--試題欄位 End-->
+	<!-- 畫布堆放區，必須放在各物件的最前面 -->
+	<!-- 畫布堆放區，必須放在各物件的最前面 end -->
+	<!-- 工具 => 直尺 -->
+	<!-- 工具 => 量角器 -->
+	<!-- 工具 => 三角尺 -->
+	<!-- 要複製物件的擺放區 -->
+	<div style="display:none;">
+		<!--短除法-->
+		<div id="symbol_short">
+			<div id="d_short" class="d_short">
+				<div class="short_l"><input id="temp_i_2" type="text" disabled="disabled"></div>
+				<div class="short">
+					<input id="temp_i_1" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="short_text" id="d_short_text"><input id="temp_i_3" type="text" disabled="disabled"></div>
+		</div>
+		<!--短除法 End-->
+		<!-- 文字輸入框 -->
+		<div class="short_text" id="d_direct_input_text_div" style="z-index:200;">
+			<input id="direct_input_text_obj" type="text">
+		</div>
+		<!-- 文字輸入框 End-->
+	</div>
+	<!-- 要複製物件的擺放區 -->
+	<div id="obj_area"></div>
+	<!-- 要複製物件的擺放區  end -->
+	<!-- 要拖曳、複製物件的擺放區 -->
+	<div id="d_c_obj_area"></div>
+	<!-- 要拖曳、複製物件的擺放區  end -->
+	<script language="javascript">
+	</script>
+	<!-- 左邊伸縮選單 作答說明 -->
+	<div class="slide-out-div" style="z-index: 510; line-height: 1; position: fixed; height: 24px; top: 250px; right: -354px;">
+		<a class="handle" href="http://120.108.208.84/ntcu-nbnat/ntcu_test_tools/data_show.php?num=93#" style="background-image: url(&quot;images/slide.png&quot;); background-repeat: no-repeat; width: 35px; height: 140px; text-indent: -99999px; display: block; outline: none; position: absolute; top: 0px; left: -35px;">Content</a>
+		<div class="steps">
+			<!--
+    作答說明：<br />
+    (1) 使用輸入器輸入算式。<br />
+    (2) 點擊<img src="images/btn_enter.png" alt="輸入" />，可將算式新增至算式記錄區。<br />
+    (3) 點擊<img src="images/btn_next.png" alt="換行" />，可換行輸入。<br />
+    (4) 點擊<img src="images/btn_delet.png" alt="清除" />，可將輸入器內數值清除。
+	-->
+		</div>
+	</div>
+	<!-- 左邊伸縮選單 作答說明 end -->
+	<!-- 左邊伸縮選單 操作工具 -->
+	<div class="tools-panel" style="z-index: 500; height: 682px;">
+		<a class="tools-tab">操作工具</a>
+		<table class="options">
+			<tbody>
+				<tr>
+					<td class="tool_option_none">
+						<img src="./images/tools_rule_s.png" alt="直尺">
+					</td>
+					<td class="tool_option_none">
+						<img src="./images/tools_triangle_s.png" alt="三角板">
+					</td>
+					<td class="tool_option_none">
+						<img src="./images/tools_protractor_s.png" alt="量角器">
+					</td>
+				</tr>
+				<tr>
+					<td class="tools_info" colspan="3">
+						<div>
+							<!-- 工具 => 拖曳、繪圖開關 -->
+							<!-- 工具 => 拖曳、選轉開關 -->
+							<!-- 工具 => 繪圖元件的顏色選擇 -->
+							<!-- 工具 => 文字輸入框 -->
+							<!-- 工具 => 短除法 -->
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- 左邊伸縮選單 操作工具  end-->
+
+	<div id="cboxOverlay" style="display: none;"></div>
+	<div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;">
+		<div id="cboxWrapper">
+			<div>
+				<div id="cboxTopLeft" style="float: left;"></div>
+				<div id="cboxTopCenter" style="float: left;"></div>
+				<div id="cboxTopRight" style="float: left;"></div>
+			</div>
+			<div style="clear: left;">
+				<div id="cboxMiddleLeft" style="float: left;"></div>
+				<div id="cboxContent" style="float: left;">
+					<div id="cboxTitle" style="float: left;"></div>
+					<div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button id="cboxSlideshow"></button>
+					<div id="cboxLoadingOverlay" style="float: left;"></div>
+					<div id="cboxLoadingGraphic" style="float: left;"></div>
+				</div>
+				<div id="cboxMiddleRight" style="float: left;"></div>
+			</div>
+			<div style="clear: left;">
+				<div id="cboxBottomLeft" style="float: left;"></div>
+				<div id="cboxBottomCenter" style="float: left;"></div>
+				<div id="cboxBottomRight" style="float: left;"></div>
+			</div>
+		</div>
+		<div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title id="title">4-n-16</title>
+    <script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
+    <script src="../js/jquery-ui.js" type="text/javascript"></script>
+    <script src="../js/jQueryRotate.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/pvc_script.js "></script>
+    <script src="../js/colorbox/jquery.colorbox.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../css/colorbox.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/jquery-ui.css" />
+    <script src="jquery.ui.touch-punch.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="../js_function/formula_function.js"></script>
+    <!-- 載入計算機function  -->
+    <script src="../js_function/input_by_formula.js"></script>
+    <!-- 點選input時，跳出燈箱，然後用計算機選擇輸入值 -->
+    <script src="../js_function/goback_result.js"></script>
+    <!-- 顯示步驟與輸入步驟 -->
+    <script src="../js_function/rotation_type.js"></script>
+    <!-- 物件順時針或逆時針逆時鐘 -->
+    <script src="../js_function/canvas_funtion.js"></script>
+    <!-- 畫布 -->
+    <link rel="stylesheet" href="../components/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../components/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+    <script src="../components/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <!--步驟說明-->
+    <script src="../js/jquery.tabSlideOut.v1.3.js"></script>
+    <script>
+    protractor_bool = false;
+
+    function go_next() {
+        if ($("#input_deg").val() == "60" && protractor_bool == true) {
+            ajaxInsertData();
+            if(getURLParameter("auto") == 1){
+                location.href="4-n-16_component_7.html?auto=1";
+                // location.href = "4-n-16_component_4.html";
+            }else{
+                location.href="4-n-16_component_7.html";
+            }
+            //return location.href = "4-n-16_component_7.html"
+        }
+        if (!protractor_bool) {
+            return respons("要先確定你對齊的0是紅色或黑色的，然後再確定是這個角是幾度。");
+        }
+        if ($("#input_deg").val() == "" || $("#input_deg").val() != "60") {
+            return respons("請在□中填入數字");
+        }
+
+    }
+    </script>
+    <style>
+    .slide-out-div {
+        display: block;
+    }
+    
+    .tools-panel {
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <!--編碼-->
+    <div class="title">能認識角度單位度，並使用量角器實測角度或劃出指定的角。</div>
+    <div id="dialog-error" title=""></div>
+    <table class="exam">
+        <tr>
+            <!--左側-->
+            <td class="question">
+                <!--題目-->
+                <div class="text">
+                    <img src="../../../images/question.gif" style="    position: relative;top: 20px;"> 使用量角器量出角ㄆ是幾度
+                </div>
+                <!--題目End-->
+            </td>
+        </tr>
+        <!--左側 end-->
+        <tr>
+            <!--右側-->
+            <td>
+                <!--作答區-->
+                <img src="../../../images/answer.gif" style="    position: relative;top: 20px;">
+                <div id="answer" class="answer">
+                    <!-- 圖片物件 -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12" style="height:600px;">
+                                <img src="../bcontroller/upImg/20160628/146710322034787900.jpg">
+                                <div>
+                                    <br>
+                                    <br>
+                                    <span>角ㄆ是</span>
+                                    <input type="text" id="input_deg" style="border:1px solid;width:100px;height:50px;"><span>度</span>
+                                </div>
+                                <div id="obj_protractor">
+                                    <div id="protractor" class="protractor">
+                                        <div id="arrow_rotate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 答案作答區 -->
+            </td>
+        </tr>
+    </table>
+    <style>
+    /*.protractor {
+    cursor: move;
+    background: url(../images/protractor2.png) no-repeat;
+    width: 565px;
+    height: 296px;
+}*/
+    
+    #obj_protractor {
+        position: absolute;
+        bottom: 280px;
+    }
+    
+    #arrow_rotate {
+        background: url('../images/arrow_unhover.png') no-repeat;
+        width: 130px;
+        height: 30px;
+        position: relative;
+        top: 260px;
+        left: 500px;
+        background-size: 100%;
+        transform: rotate(100deg);
+        /*width: 130px;
+    height: 30px;
+    position: absolute;
+    top: 130px;
+    left: 343px;
+    background-size: 100%;
+    transform: rotate(76deg);*/
+    }
+    
+    #arrow_rotate:hover,
+    #arrow_rotate:active {
+        background-image: url('../images/arrow_hover.png');
+    }
+    /*#arrow_rotate:focus { background-image: url('../images/arrow_hover.png'); }*/
+    </style>
+    <script>
+    var rotateVal = 0;
+    $("#obj_protractor").draggable({
+        stop: function(event, ui) {
+            //紀錄移動區域
+            clickprotractor = true;
+            var offset = $(this).offset();
+            var xPos = offset.left;
+            var yPos = offset.top;
+            var x_y = ui.position.left + "," + ui.position.top;
+            // total_record_array.push("m||protractor||" + x_y);
+            // console.log("滑鼠移動" + x_y);
+            // console.log("滑鼠移動" + x_y);
+                    let miliSecond = new Date();
+                    miliSecond = miliSecond.getTime() - itemstart.getTime();
+                    console.log(miliSecond);
+                    if (typeof pageName == "string") {
+                        tmpRecordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + "_1;id:obj_protractor@XX@left@XX@" + ui.position.left + ";id:obj_protractor@XX@top@XX@" + ui.position.top + ";" + miliSecond + ";" + "}@xx@";
+                    } else {
+                        recordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + ";id:obj_protractor@XX@left@XX@" + ui.position.left +";id:obj_protractor@XX@top@XX@" + ui.position.top + ";" + miliSecond + ";" + "}@xx@";
+                    }
+                    if (typeof recordStr != "undefined") {
+                        recordStr = recordStr + tmpRecordStr[0];
+                    } else {
+                        recordStr = tmpRecordStr[0];
+                    }
+            if ((150 <= ui.position.left && ui.position.left <= 160)) {
+                console.log("qwe");
+                if ((-10 >= ui.position.top && ui.position.top >= -20) || (-650 >= ui.position.top && ui.position.top >= -660)) {
+                    console.log("qwea");
+                    protractor_bool = true;
+                } else {
+                    protractor_bool = false;
+                    return respons("記得「量角器的中心點」要對齊「角的頂點」！並且可以旋轉量角器，讓其中的一個邊對齊「0」度(紅色或黑色的0都可以)。");
+                }
+            } else {
+                protractor_bool = false;
+                return respons("記得「量角器的中心點」要對齊「角的頂點」！並且可以旋轉量角器，讓其中的一個邊對齊「0」度(紅色或黑色的0都可以)。");
+            }
+        }
+    });
+    $("#input_deg").change(function() {
+        if ($("#input_deg").val() != "60") {
+            $(this).val("");
+            respons("請先確定開口方向，判斷要讀紅色或黑色數值，然後再確定這個角是幾度。")
+        }
+    })
+
+
+    $(document).ready(function() {
+        var startingDegrees = 0,
+            lastDegrees = 0,
+            currentDegrees = 0;
+        var offset = $("#protractor").offset();
+        var center_x = (offset.left) + ($("#protractor").width() / 2);
+        var center_y = (offset.top) + ($("#protractor").height() / 2);
+        // console.log(center_x, center_y);
+
+        function rotateOnMouse(e) {
+            var mouse_x = e.pageX;
+            var mouse_y = e.pageY;
+            var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+            var degree = radians * (180 / Math.PI) - startingDegrees + lastDegrees;
+            currentDegrees = degree;
+            console.log(degree)
+
+            $("#protractor").css('-moz-transform-origin', '50% 95%');
+            $("#protractor").css('-moz-transform', 'rotate(' + -degree + 'deg)');
+            $("#protractor").css('-webkit-transform-origin', '50% 95%');
+            $("#protractor").css('-webkit-transform', 'rotate(' + -degree + 'deg)');
+            $("#protractor").css('-o-transform-origin', '50% 95%');
+            $("#protractor").css('-o-transform', 'rotate(' + -degree + 'deg)');
+
+            let miliSecond = new Date();
+            miliSecond = miliSecond.getTime() - itemstart.getTime();
+            console.log(miliSecond);
+            if (typeof pageName == "string") {
+                tmpRecordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + "_1;id:protractor@XX@degree@XX@"+ -degree + "@XX@" + miliSecond + ";" + "}@xx@";
+            } else {
+                recordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + ";id:protractor@XX@degree@XX@"+ -degree + ";" + miliSecond + ";" + "}@xx@";
+            }
+            if (typeof recordStr != "undefined") {
+                recordStr = recordStr + tmpRecordStr[0];
+            } else {
+                recordStr = tmpRecordStr[0];
+            }
+        }
+
+        $('#arrow_rotate').mousedown(function(e) {
+            e.preventDefault();
+            $("#obj_protractor").draggable("disable");
+            var mouse_x = e.pageX;
+            var mouse_y = e.pageY;
+            console.log("mouse_x:" + mouse_x + "," + "mouse_y:" + mouse_y);
+            var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+            startingDegrees = radians * (180 / Math.PI);
+            $(document).bind('mousemove.rotateImg', function(e2) {
+                rotateOnMouse(e2, $('#obj_protractor'));
+            });
+        });
+
+        $('#arrow_rotate').mousedown(function(e) {
+            e.preventDefault();
+            $('#arrow_rotate').css("background-image", "url('../images/arrow_hover.png')")
+            $("#obj_protractor").draggable("disable");
+            $(document).bind('mousemove.rotateImg', function(e2) {
+                rotateOnMouse(e2, $('#obj_protractor'));
+            });
+        });
+
+        $(document).mouseup(function(e) {
+            $("#obj_protractor").draggable("enable");
+            $('#arrow_rotate').css("background-image", "url('../images/arrow_unhover.png')")
+            lastDegrees = currentDegrees;
+            $(document).unbind('mousemove.rotateImg');
+        });
+    });
+    </script>
+    <div class="button">
+        <!-- <div class="back"><a onclick="go_back()" title="回上一步">回上一步</a></div>
+        <div class="clean"><a onclick="cl_area()" title="清除本題所有作答內容">清除本題所有作答內容</a></div> -->
+        <div class="submit"><a onclick="go_next()" title="作答完畢，往下一題">作答完畢</a></div>
+    </div>
+</body>
+
+</html>

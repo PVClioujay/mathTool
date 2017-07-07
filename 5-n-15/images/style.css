@@ -1,0 +1,1765 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block
+}
+
+body {
+    line-height: 1
+}
+
+ol,
+ul {
+    list-style: none
+}
+
+blockquote,
+q {
+    quotes: none
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+* {
+    border: none;
+    margin: 0;
+    /* [disabled]padding:0; */
+}
+
+a {
+    outline: none;
+    /* for Firefox */
+    hlbr: expression(this.onFocus=this.blur());
+    /* for IE */
+    text-decoration: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    -webkit-text-size-adjust: none;
+    font-family: "微軟正黑體", "新細明體";
+    font-weight: bold;
+}
+
+.exam {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+}
+
+::selection {
+    background: transparent;
+}
+
+::-moz-selection {
+    background: transparent;
+}
+
+
+/*編碼*/
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    -moz-border-radius-topleft: 8px;
+    -moz-border-radius-topright: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border: 1px solid #3866a3;
+    padding: 25px 0;
+    background: -moz-linear-gradient( center top, #63b8ee 5%, #468ccf 100%);
+    background: -ms-linear-gradient( top, #63b8ee 5%, #468ccf 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #63b8ee), color-stop(100%, #468ccf));
+    background-color: #63b8ee;
+    color: #14396a;
+    text-align: left;
+    text-shadow: 1px 1px 0px #7cacde;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #bee2f9;
+    -moz-box-shadow: inset 1px 1px 0px 0px #bee2f9;
+    box-shadow: inset 1px 1px 0px 0px #bee2f9;
+}
+
+.title> span {
+    position: relative;
+    left: 100px;
+}
+
+
+/*標題1*/
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    border: 1px solid #dcdcdc;
+    padding: 5px 0;
+    background: -moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100%);
+    background: -ms-linear-gradient( top, #ededed 5%, #dfdfdf 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #ededed), color-stop(100%, #dfdfdf));
+    background-color: #ededed;
+    color: #777777;
+    text-align: center;
+    text-shadow: 1px 1px 0px #ffffff;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    -moz-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    box-shadow: inset 1px 1px 0px 0px #ffffff;
+}
+
+
+/*標題2*/
+
+h2 {
+    clear: both;
+    font-size: 20px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #83c41a;
+    width: 150px;
+    height: 40px;
+    margin: 10px 0;
+    line-height: 40px;
+    background: -moz-linear-gradient( center top, #9dce2c 5%, #8cb82b 100%);
+    background: -ms-linear-gradient( top, #9dce2c 5%, #8cb82b 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#9dce2c', endColorstr='#8cb82b');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #9dce2c), color-stop(100%, #8cb82b));
+    background-color: #9dce2c;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 1px 1px 0px #689324;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #c1ed9c;
+    -moz-box-shadow: inset 1px 1px 0px 0px #c1ed9c;
+    box-shadow: inset 1px 1px 0px 0px #c1ed9c;
+}
+
+
+/*工具區*/
+
+.exam .right {
+    text-align: center;
+    border-left: 1px solid #ccc;
+}
+
+@media screen and (min-width: 1500px) and (max-width: 1920px) {
+    .exam .right {
+        width: 15%;
+    }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1499px) {
+    .exam .right {
+        width: 20%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+    .exam .right {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .exam .right {
+        width: 40%;
+    }
+}
+
+
+/*題目內容*/
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question .text {
+    font-size: 24px;
+    line-height: 34px;
+    padding: 10px 20px 20px 20px;
+}
+
+
+/*作答欄位*/
+
+.answer {
+    font-size: 24px;
+    /*line-height: 30px;*/
+    padding: 10px;
+    /*min-height: 700px;*/
+    text-align: center;
+}
+
+
+/*橫式, 直式, 除式*/
+
+.answer_horizontal,
+.answer_vertical,
+.answer_division {
+    clear: both;
+    padding-bottom: 30px;
+}
+
+#cos_ans_area {
+    text-align: left;
+}
+
+
+/*答案*/
+
+.answer_text {
+    display: block;
+    width: 95%;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 0 20px 0;
+    padding: 10px;
+    background: #f1f1f1;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    font-size: 24px;
+}
+
+.answer_text input {
+    float: left;
+    width: 12%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 24px;
+    margin: 0 0 10px 10px;
+    padding: 15px 5px;
+    border: 2px dashed #dfdfdf;
+    font-family: "微軟正黑體", "新細明體";
+    font-weight: bold;
+}
+
+.answer_text .ans_select,
+.answer_text .ans_idle {
+    float: left;
+    width: 65%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 24px;
+    padding: 15px 10px;
+    background: #fff;
+}
+
+.ans_select {
+    border: 2px dashed #5a9ee9;
+}
+
+.ans_idle {
+    border: 2px dashed #B6E0E0;
+}
+
+
+/*按鈕列*/
+
+.button {
+    clear: both;
+    margin: 10px auto;
+    text-align: center;
+    padding-bottom: 50px;
+    width: 720px;
+}
+
+.back {
+    float: left;
+    background: url(../images/btn_back.png) center no-repeat;
+    font-size: 16px;
+    text-align: center;
+    width: 140px;
+    height: 37px;
+    line-height: 37px;
+    margin-right: 10px;
+    cursor: pointer;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #ffaa22;
+    text-decoration: none;
+    background: -moz-linear-gradient( center top, #ffec64 5%, #ffab23 100%);
+    background: -ms-linear-gradient( top, #ffec64 5%, #ffab23 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #ffec64), color-stop(100%, #ffab23));
+    background-color: #ffec64;
+    color: #333333;
+    text-shadow: 1px 1px 0px #ffee66;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #fff6af;
+    -moz-box-shadow: inset 1px 1px 0px 0px #fff6af;
+    box-shadow: inset 1px 1px 0px 0px #fff6af;
+}
+
+.back:hover {
+    background: -moz-linear-gradient( center top, #ffab23 5%, #ffec64 100%);
+    background: -ms-linear-gradient( top, #ffab23 5%, #ffec64 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #ffab23), color-stop(100%, #ffec64));
+    background-color: #ffab23;
+}
+
+.back:active {
+    position: relative;
+    top: 1px;
+}
+
+.back a {
+    display: block;
+    width: 140px;
+    height: 37px;
+}
+
+.clean {
+    float: left;
+    background: url(../images/btn_clean.png) center no-repeat;
+    font-size: 16px;
+    text-align: center;
+    width: 180px;
+    height: 37px;
+    line-height: 37px;
+    margin-right: 10px;
+    cursor: pointer;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #b3b3b3;
+    text-decoration: none;
+    background: -moz-linear-gradient( center top, #ededed 5%, #b3b3b3 100%);
+    background: -ms-linear-gradient( top, #ededed 5%, #b3b3b3 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#b3b3b3');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #ededed), color-stop(100%, #b3b3b3));
+    background-color: #ededed;
+    color: #666666;
+    text-shadow: 1px 1px 0px #f2f2f2;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #ededed;
+    -moz-box-shadow: inset 1px 1px 0px 0px #ededed;
+    box-shadow: inset 1px 1px 0px 0px #ededed;
+}
+
+.clean:hover {
+    background: -moz-linear-gradient( center top, #b3b3b3 5%, #ededed 100%);
+    background: -ms-linear-gradient( top, #b3b3b3 5%, #ededed 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#b3b3b3', endColorstr='#ededed');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #b3b3b3), color-stop(100%, #ededed));
+    background-color: #b3b3b3;
+}
+
+.clean:active {
+    position: relative;
+    top: 1px;
+}
+
+.clean a {
+    display: block;
+    width: 180px;
+    height: 37px;
+}
+
+.submit {
+    position: relative;
+    left: 120px;
+    float: left;
+    background: url(../images/btn_submit.png) center no-repeat;
+    font-size: 16px;
+    /*text-align:center;*/
+    width: 180px;
+    height: 37px;
+    line-height: 37px;
+    /*margin-right:10px;*/
+    cursor: pointer;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #337fed;
+    text-decoration: none;
+    background: -moz-linear-gradient( center top, #3d94f6 5%, #1e62d0 100%);
+    background: -ms-linear-gradient( top, #3d94f6 5%, #1e62d0 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #3d94f6), color-stop(100%, #1e62d0));
+    background-color: #3d94f6;
+    color: #ffffff;
+    text-shadow: 1px 1px 0px #1570cd;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #97c4fe;
+    -moz-box-shadow: inset 1px 1px 0px 0px #97c4fe;
+    box-shadow: inset 1px 1px 0px 0px #97c4fe;
+}
+
+.submit a,
+.showobj a {
+    display: block;
+    width: 180px;
+    height: 37px;
+    color: #ffffff;
+}
+
+.submit:hover {
+    background: -moz-linear-gradient( center top, #1e62d0 5%, #3d94f6 100%);
+    background: -ms-linear-gradient( top, #1e62d0 5%, #3d94f6 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #1e62d0), color-stop(100%, #3d94f6));
+    background-color: #1e62d0;
+}
+
+.submit:active {
+    position: relative;
+    top: 1px;
+}
+
+.showobj {
+    float: left;
+    background: url(../images/btn_steps.png) center no-repeat;
+    font-size: 18px;
+    text-align: center;
+    width: 180px;
+    height: 37px;
+    line-height: 37px;
+    display: none;
+    cursor: pointer;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #d83526;
+    background: -moz-linear-gradient( center top, #fa665a 5%, #d34639 100%);
+    background: -ms-linear-gradient( top, #fa665a 5%, #d34639 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fa665a', endColorstr='#d34639');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #fa665a), color-stop(100%, #d34639));
+    background-color: #fa665a;
+    color: #ffffff;
+    text-shadow: 1px 1px 0px #98231a;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #fab3ad;
+    -moz-box-shadow: inset 1px 1px 0px 0px #fab3ad;
+    box-shadow: inset 1px 1px 0px 0px #fab3ad;
+}
+
+.showobj:hover {
+    background: -moz-linear-gradient( center top, #d34639 5%, #fa665a 100%);
+    background: -ms-linear-gradient( top, #d34639 5%, #fa665a 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#d34639', endColorstr='#fa665a');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #d34639), color-stop(100%, #fa665a));
+    background-color: #d34639;
+}
+
+.showobj:active {
+    position: relative;
+    top: 1px;
+}
+
+
+/*計算機浮動*/
+
+#abgne_float {
+    display: none;
+    position: absolute;
+}
+
+#abgne_float .abgne_close_ad {
+    display: block;
+    text-align: right;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+
+/*計算機*/
+
+.caculator {
+    clear: both;
+    background: #e1e1e1;
+    width: 190px;
+    height: 248px;
+    margin: 0 auto 10px auto;
+    background: #f1f1f1;
+    font-size: 20px;
+    color: #333333;
+    text-align: center;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    background: -moz-linear-gradient( center top, #f3f3f3 5%, #e3e3e3 100%);
+    background: -ms-linear-gradient( top, #f3f3f3 5%, #e3e3e3 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f3f3f3', endColorstr='#e3e3e3');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #f3f3f3), color-stop(100%, #e3e3e3));
+    background-color: #f3f3f3;
+    text-shadow: 1px 1px 0px #ffffff;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    -moz-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    box-shadow: inset 1px 1px 0px 0px #ffffff;
+}
+
+.caculator .formula_area {
+    width: 171px;
+    height: 50px;
+    margin: 10px auto 5px auto;
+    font-size: 22px;
+}
+
+.caculator ul {
+    clear: both;
+    width: 171px;
+    margin: 0 auto;
+}
+
+.caculator ul li {
+    float: left;
+    cursor: pointer;
+}
+
+.caculator table {
+    display: inline-block;
+    clear: both;
+    width: 171px;
+    margin: 5px auto;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.caculator td.number {
+    background: url(../images/bg_number.png) no-repeat;
+    height: 34px;
+    width: 34px;
+    line-height: 34px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.caculator td.symbol {
+    background: url(../images/bg_symbol.png) no-repeat;
+    height: 34px;
+    width: 34px;
+    line-height: 34px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+/*加減乘除-四則運算*/
+
+ul.asmd {
+    display: inline-table;
+    margin: 10px auto 5px auto;
+}
+
+ul.asmd li {
+    display: block;
+    float: left;
+    background: #e1e1e1;
+    width: 45px;
+    height: 35px;
+    line-height: 35px;
+    margin: 2px;
+    background: #f1f1f1;
+    font-size: 16px;
+    color: #333333;
+    text-align: center;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    background: -moz-linear-gradient( center top, #f3f3f3 5%, #e3e3e3 100%);
+    background: -ms-linear-gradient( top, #f3f3f3 5%, #e3e3e3 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f3f3f3', endColorstr='#e3e3e3');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #f3f3f3), color-stop(100%, #e3e3e3));
+    background-color: #f3f3f3;
+    text-shadow: 1px 1px 0px #ffffff;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    -moz-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    box-shadow: inset 1px 1px 0px 0px #ffffff;
+    cursor: pointer;
+}
+
+ul.asmd li:hover {
+    background: -moz-linear-gradient( center top, #d3d3d3 5%, #f3f3f3 100%);
+    background: -ms-linear-gradient( top, #d3d3d3 5%, #f3f3f3 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#d3d3d3', endColorstr='#f3f3f3');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #d3d3d3), color-stop(100%, #f3f3f3));
+    background-color: #d3d3d3;
+}
+
+ul.asmd li:active {
+    position: relative;
+    top: 1px;
+}
+
+
+/*步驟說明*/
+
+.operating {
+    display: block;
+    position: fixed;
+    top: 30%;
+    right: 1%;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #eb44b6;
+    padding: 9px 18px;
+    text-decoration: none;
+    background: -moz-linear-gradient( center top, #f53db5 5%, #e02a91 100%);
+    background: -ms-linear-gradient( top, #f53db5 5%, #e02a91 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f53db5', endColorstr='#e02a91');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #f53db5), color-stop(100%, #e02a91));
+    background-color: #f53db5;
+    color: #ffffff;
+    text-shadow: 1px 1px 0px #cc16a2;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #fc97d4;
+    -moz-box-shadow: inset 1px 1px 0px 0px #fc97d4;
+    box-shadow: inset 1px 1px 0px 0px #fc97d4;
+}
+
+.operating:hover {
+    background: -moz-linear-gradient( center top, #e02a91 5%, #f53db5 100%);
+    background: -ms-linear-gradient( top, #e02a91 5%, #f53db5 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e02a91', endColorstr='#f53db5');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #e02a91), color-stop(100%, #f53db5));
+    background-color: #e02a91;
+}
+
+.steps {
+    text-align: left;
+    font-size: 18px;
+    line-height: 30px;
+    margin: 5px;
+}
+
+@media screen and (min-height: 900px) and (max-height: 1080px) {
+    .steps {
+        max-height: none;
+        overflow-y: auto;
+    }
+}
+
+@media screen and (min-height: 768px) and (max-height: 899px) {
+    .steps {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+}
+
+@media screen and (max-height: 766px) {
+    .steps {
+        max-height: 340px;
+        overflow-y: auto;
+    }
+}
+
+.steps span {
+    background: #ffe1c1;
+    padding: 0 2px;
+}
+
+.steps img {
+    margin-bottom: -5px;
+}
+
+.slide-out-div {
+    padding: 5px 35px 5px 15px;
+    width: 300px;
+    background: #feffe8;
+    border: 2px dashed #ccc;
+}
+
+.tools-panel {
+    background: #f1f1f1;
+    border: 1px solid #dddddd;
+    position: fixed;
+    top: 80px;
+    right: -285px;
+    min-height: 280px;
+}
+
+.tools-panel table.options {
+    clear: both;
+    position: relative;
+    top: -140px;
+    padding: 0;
+    margin: 0;
+}
+
+.tools-panel table td.tool_option {
+    text-align: center;
+    vertical-align: middle;
+    width: 95px;
+    height: 60px;
+    background: url(../images/tool_bg.png) no-repeat;
+}
+
+.tools-panel table td.tool_option_none {
+    text-align: center;
+    vertical-align: middle;
+    width: 95px;
+    height: 60px;
+    background: url(../images/tool_none.png) no-repeat;
+}
+
+.tools-panel table td.tool_option_none a {
+    cursor: default;
+}
+
+.tools-panel table td.tool_option:hover,
+.tools-panel table td.tool_option:active {
+    background: url(../images/tool_bg_hover.png) no-repeat;
+}
+
+.tools-panel a.tools-tab {
+    background: url(../images/slide_tools.png) no-repeat;
+    display: block;
+    height: 140px;
+    width: 35px;
+    right: 32px;
+    bottom: 0px;
+    position: relative;
+    float: left;
+    text-indent: -9999px;
+}
+
+.tools_info {
+    text-align: center;
+}
+
+.tools_info> div {
+    display: block;
+    padding: 0 10px;
+    height: 480px;
+    width: 260px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/*直式*/
+
+.straight_arithmetic {
+    width: 70%;
+    font-size: 24px;
+    margin: 20px auto;
+}
+
+.straight_arithmetic td {
+    width: 10%;
+    height: 50px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.straight_arithmetic select {
+    width: 70px;
+    height: 50px;
+    font-size: 24px;
+    background: #e4f0f8;
+}
+
+.straight_arithmetic input {
+    height: 50px;
+    width: 70px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.straight_arithmetic .count {
+    border-top: 3px solid #333;
+}
+
+.add_tr {
+    background: #fff;
+}
+
+
+/*除法*/
+
+.division {
+    margin: 10px auto;
+}
+
+.division_top {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.division_top td {
+    padding: 3px;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+}
+
+.division_top input,
+.division_end input {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+    text-align: center;
+    border: 1px solid #ccc;
+    width: 30px;
+}
+
+.division_top .bg {
+    background: url(../images/division_top.png) no-repeat;
+    padding: 10px 0 0 15px;
+}
+
+.division_end {
+    clear: both;
+    display: block;
+}
+
+.d_1 {
+    clear: both;
+    display: inline-block;
+    border-bottom: 2px solid #000;
+    width: 260px;
+}
+
+.d_2 {
+    clear: both;
+    display: inline-block;
+}
+
+.add_new {
+    cursor: pointer;
+    text-align: center;
+    margin: 5px 0 0 150px;
+}
+
+
+/*尺*/
+
+.ruler {
+    cursor: move;
+    background: url(../images/ruler.png) no-repeat;
+    width: 320px;
+    height: 69px;
+    margin: 10px auto;
+    position: absolute;
+}
+
+
+/*量角器*/
+
+.protractor {
+    cursor: move;
+    background: url(../images/protractor.png) no-repeat;
+    width: 300px;
+    height: 168px;
+    margin: 10px auto;
+    position: absolute;
+}
+
+.protractor_l {
+    float: left;
+    width: 20%;
+    cursor: move;
+}
+
+.protractor_r {
+    float: left;
+    width: 20%;
+    cursor: move;
+}
+
+.protractor_m {
+    float: left;
+    width: 60%;
+    cursor: default;
+}
+
+.protractor_m .focus {
+    height: 100px;
+    cursor: url(../images/rotate_r.png), default;
+}
+
+
+/*三角板*/
+
+.triangle {
+    clear: both;
+    cursor: move;
+    background: url(../images/triangle.png) no-repeat;
+    width: 320px;
+    height: 175px;
+    margin: 10px auto;
+    position: absolute;
+}
+
+
+/*旋轉切換*/
+
+.switch {
+    margin: 20px auto;
+    padding: 0 15px;
+    width: 210px;
+    height: 40px;
+    line-height: 40px;
+    background: #f1f1f1;
+    font-size: 20px;
+    color: #666666;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    background: -moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100%);
+    background: -ms-linear-gradient( top, #f9f9f9 5%, #e9e9e9 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #f9f9f9), color-stop(100%, #e9e9e9));
+    background-color: #f9f9f9;
+    text-shadow: 1px 1px 0px #ffffff;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    -moz-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    box-shadow: inset 1px 1px 0px 0px #ffffff;
+}
+
+.switch li {
+    display: block;
+    margin: 0 10px;
+    color: #666;
+    cursor: pointer;
+}
+
+.switch img {
+    margin: 0 2px -7px 2px;
+}
+
+
+/*選取工具*/
+
+.tools {
+    width: 180px;
+    margin: 10px auto;
+}
+
+.tools li {
+    display: block;
+    margin: 10px;
+    cursor: pointer;
+    padding: 3px;
+}
+
+#sw_tools {
+    font-size: 20px;
+    font-weight: bold;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    height: 30px;
+    line-height: 30px;
+    background: -moz-linear-gradient( center top, #52b1fa 5%, #3294d6 100%);
+    background: -ms-linear-gradient( top, #52b1fa 5%, #3294d6 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#52b1fa', endColorstr='#3294d6');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #52b1fa), color-stop(100%, #3294d6));
+    background-color: #52b1fa;
+    color: #ffffff;
+    text-shadow: 1px 1px 0px #1570cd;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #97c4fe;
+    -moz-box-shadow: inset 1px 1px 0px 0px #97c4fe;
+    box-shadow: inset 1px 1px 0px 0px #97c4fe;
+}
+
+#sw_pen {
+    font-size: 20px;
+    font-weight: bold;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    height: 30px;
+    line-height: 30px;
+    background: -moz-linear-gradient( center top, #ff40a6 5%, #f20061 100%);
+    background: -ms-linear-gradient( top, #ff40a6 5%, #f20061 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff40a6', endColorstr='#f20061');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #ff40a6), color-stop(100%, #f20061));
+    background-color: #ff40a6;
+    color: #ffffff;
+    text-shadow: 1px 1px 0px #c70067;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #fbafe3;
+    -moz-box-shadow: inset 1px 1px 0px 0px #fbafe3;
+    box-shadow: inset 1px 1px 0px 0px #fbafe3;
+}
+
+.tools img {
+    margin: 0 5px -5px 0;
+}
+
+.select {
+    border: 3px dashed #ffea00;
+}
+
+
+/*畫筆工具顏色線段*/
+
+#sw_color_black,
+#sw_color_red,
+#sw_color_orange,
+#sw_color_blue,
+#sw_color_green {
+    clear: both;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    height: 30px;
+    line-height: 30px;
+    color: #ffffff;
+}
+
+#sw_color_black {
+    background: black;
+}
+
+#sw_color_red {
+    background: red;
+}
+
+#sw_color_orange {
+    background: orange;
+}
+
+#sw_color_blue {
+    background: blue;
+}
+
+#sw_color_green {
+    background: green;
+}
+
+
+/*參考單位*/
+
+.unit {
+    display: inline-block;
+    width: 270px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.unit p {
+    display: block;
+    float: left;
+    color: #111;
+    font-size: 18px;
+    width: 100px;
+    padding: 10px;
+    margin: 4px 6px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #eeb44f;
+    background: -moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100%);
+    background: -ms-linear-gradient( top, #ffc477 5%, #fb9e25 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #ffc477), color-stop(100%, #fb9e25));
+    background-color: #ffc477;
+}
+
+
+/*短除法
+.symbol_short{
+	width:200px;
+	margin:0 auto;
+}
+
+.short{
+	border-left:2px solid #000;
+	border-bottom:2px solid #000;
+	width:200px;
+	height:40px;
+	padding:0 10px;
+	margin:20px;
+	cursor:move;
+}
+
+.short input{
+	margin:0 5px;
+	width:75px;
+	font-size:20px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	border:1px solid #ccc;
+}*/
+
+
+/*New短除法*/
+
+.symbol_short {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.d_short {
+    width: 200px;
+    clear: both;
+}
+
+.short {
+    float: left;
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+    width: 100px;
+    height: 40px;
+    padding: 0;
+    margin: 20px 5px;
+    cursor: move;
+}
+
+.short_l {
+    float: left;
+    margin-top: 20px;
+}
+
+.short input,
+.short_l input {
+    margin: 0 5px;
+    width: 75px;
+    font-size: 20px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.grids {
+    margin: 20px;
+}
+
+.grids li {
+    display: block;
+    float: left;
+    margin: 20px;
+    cursor: move;
+    width: 300px;
+    height: 30px;
+}
+
+
+/*輸入框*/
+
+.short_text {
+    clear: both;
+    width: 70px;
+    margin: 0 auto;
+    padding: 10px 15px;
+    border: 1px dashed #F69;
+    text-align: center;
+    cursor: move;
+}
+
+.short_text input {
+    width: 70px;
+    font-size: 20px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+
+/*分數*/
+
+#fraction {
+    display: block;
+    float: left;
+    font-size: 22px;
+    margin-right: 30px;
+}
+
+#fraction .left {
+    display: block;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    text-align: center;
+}
+
+#fraction .top {
+    display: block;
+    position: relative;
+    left: 25px;
+    top: -45px;
+    text-align: center;
+}
+
+#fraction .bottom {
+    position: relative;
+    left: 25px;
+    top: -45px;
+    padding: 0 2px;
+    border-top: 1px solid #000;
+    text-align: center;
+}
+
+
+/*分數編輯器*/
+
+.fraction_edit {
+    clear: both;
+    background: #e3e3e3;
+    width: 190px;
+    margin: 10px auto;
+    background: #f1f1f1;
+    font-size: 20px;
+    color: #333333;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    background: -moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100%);
+    background: -ms-linear-gradient( top, #f9f9f9 5%, #e9e9e9 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #f9f9f9), color-stop(100%, #e9e9e9));
+    background-color: #f9f9f9;
+    text-shadow: 1px 1px 0px #ffffff;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    -moz-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    box-shadow: inset 1px 1px 0px 0px #ffffff;
+}
+
+.fraction_edit h3 {
+    font-size: 18px;
+    padding: 10px 0 5px 0;
+    text-align: center;
+}
+
+.fraction_edit p {
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: normal;
+    color: #444;
+    text-align: left;
+    padding: 5px 15px 10px 15px;
+}
+
+.fraction_edit table {
+    width: 160px;
+    margin: 0 auto;
+}
+
+.fraction_edit td {
+    vertical-align: middle;
+    text-align: center;
+    border: none;
+    height: 50px;
+}
+
+.fraction_edit input {
+    width: 50px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid #ddd;
+}
+
+
+/*分數編輯器*/
+
+.fraction_edit_for_ans {
+    background: #e3e3e3;
+    width: 190px;
+    margin: 0 auto;
+    background: #f1f1f1;
+    font-size: 20px;
+    color: #333333;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    background: -moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100%);
+    background: -ms-linear-gradient( top, #f9f9f9 5%, #e9e9e9 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #f9f9f9), color-stop(100%, #e9e9e9));
+    background-color: #f9f9f9;
+    text-shadow: 1px 1px 0px #ffffff;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    -moz-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    box-shadow: inset 1px 1px 0px 0px #ffffff;
+}
+
+.fraction_edit_for_ans h3 {
+    font-size: 18px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.fraction_edit_for_ans p {
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: normal;
+    color: #444;
+    text-align: left;
+    padding: 5px 15px 20px 15px;
+}
+
+.fraction_edit_for_ans table {
+    width: 160px;
+    margin: 0 auto;
+}
+
+.fraction_edit_for_ans td {
+    vertical-align: middle;
+    text-align: center;
+    border: none;
+    height: 50px;
+}
+
+.fraction_edit_for_ans input {
+    width: 50px;
+    height: 30px;
+    line-height: 30x;
+    text-align: center;
+    font-size: 20px;
+}
+
+.enter {
+    background: #3CC;
+    width: 160px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 10px auto;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/*點拖曳*/
+
+ul.point {
+    margin: 10px auto;
+    width: 250px;
+}
+
+ul.point li {
+    display: block;
+    float: left;
+    margin: 20px;
+    font-size: 20px;
+    text-align: center;
+    cursor: move;
+}
+
+
+/*標示座標*/
+
+.mark {
+    float: left;
+    display: block;
+    margin: 10px 20px;
+    font-size: 20px;
+    text-align: center;
+    width: 60px;
+    cursor: move;
+}
+
+.mark_line {
+    display: block;
+    width: 3px;
+    height: 25px;
+    background: #F60;
+    text-align: center;
+    margin: 5px auto;
+}
+
+.mark input {
+    display: ;
+    text-align: center;
+    width: 60px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+}
+
+
+/*石頭體積*/
+
+#stone {
+    display: block;
+    float: left;
+    cursor: move;
+}
+
+#glass {
+    display: block;
+    float: left;
+}
+
+
+/*線段組合*/
+
+#line_2 {
+    cursor: move;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background: url(../images/line_2.png) no-repeat;
+    height: 60px;
+    width: 120px;
+}
+
+#line_4 {
+    cursor: move;
+    margin-bottom: 30px;
+    background: url(../images/line_4.png) no-repeat;
+    height: 60px;
+    width: 160px;
+}
+
+#line_6 {
+    cursor: move;
+    margin-bottom: 30px;
+    background: url(../images/line_6.png) no-repeat;
+    height: 60px;
+    width: 220px;
+    ;
+}
+
+#line_8 {
+    cursor: move;
+    margin-bottom: 30px;
+    background: url(../images/line_8.png) no-repeat;
+    height: 60px;
+    width: 280px;
+}
+
+#line_10 {
+    cursor: move;
+    margin-bottom: 30px;
+    background: url(../images/line_10.png) no-repeat;
+    height: 60px;
+    width: 340px;
+}
+
+
+/*對襯圖形排列*/
+
+#grids {
+    margin: 20px;
+}
+
+#grids li {
+    display: block;
+    float: left;
+    margin: 20px;
+    cursor: move;
+    width: 60px;
+    height: 30px;
+}
+
+
+/*6-d-02-S05折線圖表格*/
+
+#line6d02S05 {
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+#line6d02S05 td {
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #ccc;
+}
+
+
+/*6-n-01-S05答案上下欄位*/
+
+#answer_1 {
+    display: block;
+    min-height: 450px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+#answer_2 {
+    display: block;
+    min-height: 200px;
+    padding: 0 20px;
+}
+
+#answer_2 p {
+    margin-bottom: 15px;
+}
+
+
+/*拖曳旋轉物件圖片設定*/
+
+.img {
+    clear: both;
+    display: block;
+    width: ;
+    height: ;
+}
+
+
+/*閃爍邊框*/
+
+.animated {
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes flash {
+    0%,
+    24%,
+    48%,
+    72%,
+    100% {
+        opacity: 1;
+    }
+    12%,
+    36%,
+    60%,
+    84% {
+        opacity: 0;
+    }
+}
+
+@keyframes flash {
+    0%,
+    24%,
+    48%,
+    72%,
+    100% {
+        opacity: 1;
+    }
+    12%,
+    36%,
+    60%,
+    84% {
+        opacity: 0;
+    }
+}
+
+.flash {
+    -webkit-animation-name: flash;
+    animation-name: flash;
+}
+
+canvas {
+    border: 1px dashed #e7e7e7;
+}
+
+.trashcan {
+    position: fixed;
+    bottom: 12%;
+    right: 0%;
+    background: url(../images/trashcan.png) no-repeat;
+    width: 128px;
+    height: 128px;
+}
+
+.trashcan:hover {
+    background: url(../images/trashcan_over.png) no-repeat;
+}
+
+#promptText {
+    width: 320px;
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 40px;
+}
+
+#sec_Text {
+    display: inline;
+}
+
+#min_Text {
+    display: inline;
+}
+
+.right {
+    display: none;
+}
+
+.question {
+    border-bottom: 2px dashed #666;
+}
+
+.text {
+    text-align: center;
+}
+
+input[type='text'] {
+    background-color: white;
+}
+
+#secRecord {
+    position: relative;
+    bottom: 180px;
+    z-index: 10;
+}
+
+.tools-panel {
+    display: none;
+}
+
+.slide-out-div {
+    display: none;
+}
+
+#ans {
+    position: relative;
+    float: right;
+    right: 470px;
+}
+
+#sec_title {
+    font-size: 24px;
+    font-weight: bold;
+    border: 1px solid #dcdcdc;
+    padding: 5px 0;
+    background: -moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100%);
+    background: -ms-linear-gradient( top, #ededed 5%, #dfdfdf 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #ededed), color-stop(100%, #dfdfdf));
+    background-color: #ededed;
+    color: black;
+    text-align: left;
+    text-shadow: 1px 1px 0px #ffffff;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    -moz-box-shadow: inset 1px 1px 0px 0px #ffffff;
+    box-shadow: inset 1px 1px 0px 0px #ffffff;
+}
+
+#sec_title> span {
+    position: relative;
+    left: 100px;
+}
+
+.question> span {
+    position: relative;
+    left: 150px;
+}
+
+#Lv_1-1 {
+    position: relative;
+    left: 56%;
+    width: 20%;
+    font-size: 12pt;
+    bottom: 44px;
+}
+
+#Lv_2-1 {
+    position: relative;
+    left: 57%;
+    width:20%;
+    font-size:12pt;
+    bottom: 44px;
+}

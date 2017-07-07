@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0069)http://120.108.208.84/ntcu-nbnat/ntcu_test_tools/data_show.php?num=87 -->
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow-x: hidden;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title id="title">3-s-03</title>
+    <script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
+    <script src="../js/jquery-ui.js" type="text/javascript"></script>
+    <script src="../js/jQueryRotate.js" type="text/javascript"></script>
+    <script src="../js/jquery.colorbox.js"></script>
+    <link rel="stylesheet" href="../js/jquery-ui.min.css">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../js/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="../css/colorbox.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- 畫布 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+        <script src="images/flip.js"></script>
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+            crossorigin="anonymous">
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+                crossorigin="anonymous"></script>
+                <script type="text/javascript" src="../js/pvc_script.js"></script>
+</head>
+
+<body cz-shortcut-listen="true">
+    <div class="title">
+        能使用圓規畫圓，認識圓的圓心、圓周、半徑與直徑。
+    </div>
+    <table class="exam">
+        <tbody>
+            <tr>
+                <!--左側-->
+                <td class="question">
+                    <!--題目-->
+                    <div class="text">
+                        <br>
+                        <span style="font-size:20pt; text-align:center; "><img src="../images/question.gif" style="float: left;">如何使用圓規畫出直徑6公分的圓呢？</span>
+                        <br>
+                        <button class="btn btn-primary" id="autoDraw" style="font-size:20pt;">畫圓</button>
+                    </div>
+                    <!--題目End-->
+                </td>
+            </tr>
+            <!--左側 end-->
+            <tr>
+                <!--右側-->
+                <td>
+                    <img src="../images/answer.gif">
+                    <!--作答區-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div id="drawArea">
+                                    <div id="compass">
+                                        <div class="btnDeg">
+                                            <a href="#" id="btn_degPlus">+</a>
+                                            <a href="#" id="btn_degMinus">-</a>
+                                        </div>
+                                        <div id="handle">
+                                            <div id="handleBasic"></div>
+                                            <div id="legNeedle"></div>
+                                            <div id="legPencil"></div>
+                                        </div>
+                                    </div>
+                                    <div id="circle">
+                                        <div id="halfclip">
+                                            <div class="halfcircle" id="clipped"></div>
+                                        </div>
+                                        <div class="halfcircle" id="fixed"></div>
+                                    </div>
+
+                                </div>
+                                <div id="ruler" style="position: relative;"></div>
+                                <div id="line"></div>
+                                <div class="next_q">
+                                    <span>請用直尺量看看畫出來的圓，直徑為<input type="text" id="diameter_value" size="5" style="border-bottom: 1px solid black; text-align:center;">公分</span>
+                                    <br>
+                                    <div class="lv2" style="display: none;">
+                                        <span>直徑6公分的圓，半徑為<input type="text" id="diameter_value2" size="5" style="border-bottom: 1px solid black; text-align:center;">公分</span>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- 答案作答區 -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var plus = document.querySelector("#btn_degPlus");
+        var minus = document.querySelector("#btn_degMinus");
+
+        var legNeedle = document.querySelector("#legNeedle");
+        var legPencil = document.querySelector("#legPencil");
+
+        var rotateVal = 0;
+        var rotateVal2 = 0;
+        var rotateVal3 = 0;
+        $(legNeedle).css({
+            "transform": "rotate(" + rotateVal + "deg)"
+        });
+        $(legPencil).css({
+            "transform": "rotate(" + -rotateVal + "deg)"
+        });
+
+
+        $(plus).mousedown(function () {
+
+
+            if (rotateVal != 42) {
+                rotateVal += 1;
+                $(legNeedle).css({
+                    "transform": "rotate(" + rotateVal + "deg)"
+                });
+                $(legPencil).css({
+                    "transform": "rotate(" + -rotateVal + "deg)"
+                });
+                rotateVal2 = rotateVal;
+                rotateVal3 = rotateVal;
+                console.log(rotateVal)
+            }
+
+            // if(rotateVal == 11){
+            //     $("#autoDraw").show();
+            //      $(plus).hide();
+            //      $(minus).hide();
+            // }
+
+        })
+
+        $(minus).click(function () {
+
+            if (rotateVal == 0) {
+                return;
+            } else {
+                rotateVal2 = parseInt(rotateVal) - 1;
+                rotateVal3 = parseInt(rotateVal) - 1;
+                rotateVal = rotateVal2
+                $(legNeedle).css({
+                    "transform": "rotate(" + rotateVal2 + "deg)"
+                });
+
+                $(legPencil).css({
+                    "transform": "rotate(-" + rotateVal3 + "deg)"
+                });
+
+                $("#compass").draggable("enable");
+                console.log(-rotateVal + 1)
+            }
+            
+
+        })
+
+
+
+        $("#drawArea").draggable();
+        // $("#ruler").draggable();
+
+        var doAnime = false;
+
+        $("#autoDraw").click(function () {
+            if(rotateVal != 12){
+                // $("#autoDraw").show();
+                // $(plus).hide();
+                //  $(minus).hide();
+               
+                $(".ui-dialog").css("width", "400px");
+                $(".ui-dialog").css("left", "784px");
+                return responsImg("直徑6公分，應使用半徑<span style='color:red; font-size: 20pt;'>3</span>公分畫圖");
+            }else{
+                $(plus).hide();
+                 $(minus).hide();
+            }
+            if (doAnime == false && rotateVal == 12) {
+                $("#compass").addClass("animate");
+                $("#clipped").css("animation", "rotate 3s linear 2");
+                $("#fixed").css("animation", "showfixed 6s 1");
+                $("#halfclip").css("animation", "cliprotate 6s 1");
+                $("#circle").css("opacity", "1");
+                $("#btn_degPlus").css("display", "none");
+                $("#btn_degMinus").css("display", "none");
+                doAnime = true;
+                $(this).hide();
+            }
+             setTimeout(function () {
+                    if (doAnime == true) {
+                        $("#drawArea").draggable("disable");
+                        $(".ui-state-disabled").css("opacity", "1");
+                        // $("#compass").css("display", "none");
+                        $("#ruler").draggable();
+                        $(".next_q").show();
+                    }
+                }, 9000);
+
+            // if (doAnime == true) {
+            //     $("#drawArea").draggable("disable");
+            //     $(".ui-state-disabled").css("opacity","1");
+            //     // $("#compass").css("display","none");
+            //     $("#ruler").draggable();
+                
+            // }
+
+            if (rotateVal != 12) {
+                $(".ui-dialog").css("width", "400px");
+                $(".ui-dialog").css("left", "784px");
+                responsImg("直徑6公分，應使用半徑<span style='color:red; font-size: 20pt;'>3</span>公分畫圖");
+            }
+
+        })
+
+        let next_q = false;
+            $("input[name=next_q]").change(function () {
+                if ($(this).val() != "yes") {
+                    respons("直徑6公分時，圓的半徑是直徑的一半也就是3公分")
+                } else {
+                     next_q = true;
+                    $("input[name=next_q]").attr("disabled", "disabled");
+
+                }
+            })
+
+            $("#diameter_value").change(function () {
+                if ($(this).val() != "6") {
+                    $(this).val("");
+                    return respons("請用直尺量看看畫出來的圓直徑為幾公分");
+                } else {
+                    $(this).attr('disabled', 'disabled');
+                    $(".lv2").show()
+                }
+            })
+
+            $("#diameter_value2").change(function () {
+                    if ($(this).val() != "3") {
+                        $(this).val("");
+                        return respons("圓的半徑是直徑的一半，也就是6÷2=3");
+                    } else {
+                        $(this).attr('disabled', 'disabled');
+                    }
+                })
+
+        function go_next(){
+           
+            if (getURLParameter("auto") == 1) {
+                if (rotateVal == 12 && doAnime == true && $("#diameter_value").val() == "6" && $("#diameter_value2").val() == "3") { ajaxInsertData(); responsEnd("答對了"); } else {                  
+                       if ($("#diameter_value").val() != "6" && $('.next_q').css('display') != "none") {
+                        return respons("請用直尺量看看畫出來的圓直徑為幾公分");
+                    }
+                    if ($("#diameter_value2").val() != "3") {
+                        return respons("直徑6公分時，圓的半徑是直徑的一半也就是3公分")
+                    }
+                    respons("請畫出直徑6公分的圓") }
+            } else {
+                 if (rotateVal == 12 && doAnime == true && $("#diameter_value").val() == "6" && $("#diameter_value2").val() == "3") {
+                    ajaxInsertData();
+                    responsEnd("答對了");
+                } else {
+                    if ($("#diameter_value").val() != "6" && $('.next_q').css('display') != "none") {
+                        return respons("請用直尺量看看畫出來的圓直徑為幾公分");
+                    }
+                    if ($("#diameter_value2").val() != "3" && $('.next_q').css('display') != "none") {
+                        return respons("直徑6公分時，圓的半徑是直徑的一半也就是3公分")
+                    }
+                    respons("請畫出直徑6公分的圓")
+
+                }
+            }
+        }
+    </script>
+
+
+
+    <!--/* transform-origin: 16% 97%; */ /* transform: rotate(0deg); */ }-->
+
+    <style>
+        .submit {
+            margin-top: 110px;
+        }
+        
+        
+        .next_q{
+            margin-left: 37px;
+            display: none;
+            /*position: relative;*/
+            /*top: 63px;*/
+            font-size: 20pt;
+            height: 50px;
+            font-family: "DFKai-sb", "sans-serif";
+            margin-top: 60px;
+        }      
+
+        #line {
+            background-color: transparent;
+            width: 104px;
+            height: 5px;
+            position: absolute;
+            top: 110px;
+            left: 620px;
+            transform-origin: left;
+        }
+        
+        #drawArea {
+            width: 150px;
+            height: 150px;
+            /*border: 1px dotted black;*/
+            margin: 0px auto;
+        }
+        
+        #compass {
+            /*transform-origin: 23% 98%;*/
+            transform-origin: 5% 97%;
+            position: relative;
+            z-index: 99;
+            width: 135px;
+            height: 340px;
+            transform: rotate(0deg);
+            /*animation: rotate2 6s linear;*/
+            left: 83px;
+            bottom: 220px;
+        }
+        
+        .animate {
+            animation: rotate2 6s linear;
+        }
+        
+        @keyframes rotate2 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        /*------------------------------------------------------*/
+        
+        #circle {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            /*border: solid red 1px;*/
+            transform: rotate(90deg);
+            /*background-color: gray;*/
+            top: -17px;
+            left: -37px;
+            opacity: 0;
+        }
+        
+        #halfclip {
+            width: 50%;
+            height: 100%;
+            right: 0px;
+            position: absolute;
+            overflow: hidden;
+            transform-origin: left center;
+        }
+        
+        #halfclip {
+            /*animation: cliprotate 6s 1;*/
+            transform: rotate(180deg);
+        }
+        
+        @keyframes cliprotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(0deg);
+            }
+            50.01% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(180deg);
+            }
+        }
+        
+        .halfcircle {
+            box-sizing: border-box;
+            height: 100%;
+            right: 0px;
+            position: absolute;
+            border: solid 5px transparent;
+            border-top-color: green;
+            border-left-color: green;
+            border-radius: 50%;
+        }
+        
+        #clipped {
+            width: 200%;
+            transform: rotate(-45deg);
+        }
+        
+        #clipped {
+            transform: rotate(135deg);
+            /*animation: rotate 3s linear 2;*/
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(-45deg);
+            }
+            100% {
+                transform: rotate(135deg);
+            }
+        }
+        
+        #fixed {
+            width: 100%;
+            transform: rotate(135deg);
+            opacity: 0;
+        }
+        
+        #fixed {
+            opacity: 1;
+            /*animation: showfixed 6s 1;*/
+        }
+        
+        @keyframes showfixed {
+            0% {
+                opacity: 0;
+            }
+            49.99% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        /*--------------------------------------------*/
+        
+        .btnDeg {
+            position: absolute;
+            top: 42px;
+        }
+        
+        #btn_degMinus {
+            margin-left: 50px;
+        }
+        
+        #handle {
+            position: absolute;
+            background: url(images/handle.png) no-repeat;
+            background-size: cover;
+            width: 40px;
+            height: 100px;
+            left: 44px;
+        }
+        
+        #handleBasic {
+            background-color: rgba(0, 0, 0, -0.9);
+            padding: 21px;
+        }
+        
+        #legNeedle {
+            position: relative;
+            background: url(images/legNeedle.png) no-repeat;
+            width: 36px;
+            height: 280px;
+            display: inline-block;
+            transform-origin: top;
+            transform: rotate(0deg);
+            background-size: cover;
+            z-index: -1;
+            right: 16px;
+            top: 16px;
+        }
+        
+        #NeedlePoint {
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+            background-color: RGBA(245, 160, 20, 0.9);
+            position: absolute;
+            top: 270px;
+            left: 29px;
+        }
+        
+        #legPencil {
+            position: relative;
+            background: url(images/legPencil.png) no-repeat;
+            width: 30px;
+            height: 280px;
+            display: inline-block;
+            transform-origin: top;
+            transform: rotate(0deg);
+            background-size: cover;
+            z-index: -1;
+            bottom: 266px;
+            left: 21px;
+        }
+        
+        #PencilPoint {
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+            background-color: RGBA(245, 160, 20, 0.9);
+            position: absolute;
+            top: 272px;
+            left: 1px;
+        }
+        
+        #ruler {
+            background: url(images/ruler25.png) no-repeat;
+            width: 646px;
+            height: 99px;
+            background-size: cover;
+            top: 50px;
+            left: 260px;
+        }
+        
+        #btn_degPlus {
+            -moz-box-shadow: inset 0px 0px 0px -3px #97c4fe;
+            -webkit-box-shadow: inset 0px 0px 0px -3px #97c4fe;
+            box-shadow: inset 0px 0px 0px -3px #97c4fe;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0));
+            background: -moz-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+            background: -webkit-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+            background: -o-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+            background: -ms-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+            background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0', GradientType=0);
+            background-color: #3d94f6;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 1px solid #337fed;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Verdana;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 4px 10px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #1570cd;
+        }
+        
+        #btn_degPlus:hover {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6));
+            background: -moz-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+            background: -webkit-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+            background: -o-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+            background: -ms-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+            background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6', GradientType=0);
+            background-color: #1e62d0;
+        }
+        
+        #btn_degPlus:active {
+            position: relative;
+            top: 1px;
+        }
+        
+        #btn_degMinus {
+            -moz-box-shadow: inset 0px 0px 0px -3px #97c4fe;
+            -webkit-box-shadow: inset 0px 0px 0px -3px #97c4fe;
+            box-shadow: inset 0px 0px 0px -3px #97c4fe;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0));
+            background: -moz-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+            background: -webkit-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+            background: -o-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+            background: -ms-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+            background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0', GradientType=0);
+            background-color: #3d94f6;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 1px solid #337fed;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Verdana;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 4px 14px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #1570cd;
+        }
+        
+        #btn_degMinus:hover {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6));
+            background: -moz-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+            background: -webkit-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+            background: -o-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+            background: -ms-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+            background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6', GradientType=0);
+            background-color: #1e62d0;
+        }
+        
+        #btn_degMinus:active {
+            position: relative;
+            top: 1px;
+        }
+    </style>
+    <div class="button">
+        <!--<div class="back"><a onclick="go_back()" title="回上一步">回上一步</a></div>
+		<div class="clean"><a onclick="cl_area()" title="清除本題所有作答內容">清除本題所有作答內容</a></div>
+		<div class="showobj" id="showRecord"><a onclick="show_record()">顯示輸入步驟</a></div>-->
+        <div class="submit"><a onclick="go_next()" title="作答完畢，往下一題">作答完畢</a></div>
+    </div>
+</body>
+
+</html>

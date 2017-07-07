@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0069)http://120.108.208.84/ntcu-nbnat/ntcu_test_tools/data_show.php?num=87 -->
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow-x: hidden;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title id="title">3-s-03</title>
+    <script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
+    <script src="../js/jquery-ui.js" type="text/javascript"></script>
+    <script src="../js/jQueryRotate.js" type="text/javascript"></script>
+    <script src="../js/jquery.colorbox.js"></script>
+    <link rel="stylesheet" href="../js/jquery-ui.min.css">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../js/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="../css/colorbox.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- 畫布 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+        <script src="images/flip.js"></script>
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+            crossorigin="anonymous">
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+                crossorigin="anonymous"></script>
+                <script type="text/javascript" src="../js/pvc_script.js"></script>
+</head>
+
+<body cz-shortcut-listen="true">
+    <div class="title">
+        能使用圓規畫圓，認識圓的圓心、圓周、半徑與直徑。
+    </div>
+    <table class="exam">
+        <tbody>
+            <tr>
+                <!--左側-->
+                <td class="question">
+                    <!--題目-->
+                    <div class="text">
+                        <br>
+                        <span style="font-size:20pt; text-align:center; "><img src="../images/question.gif" style="float: left;">複習所學-小試身手</span>
+                        <br>
+                    </div>
+                    <!--題目End-->
+                </td>
+            </tr>
+            <!--左側 end-->
+            <tr>
+                <!--右側-->
+                <td>
+                    <img src="../images/answer.gif">
+                    <!--作答區-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+
+                                <div id="circle">
+                                    <div class="selGroup" id="select1">
+                                        <select id="circumference">
+                                            <option value="default">請選擇</option>
+                                            <option value="coc">圓心</option>
+                                            <option value="radius">半徑</option>
+                                            <option value="diameter">直徑</option>
+                                            <option value="circumference">圓周</option>
+                                        </select>
+                                        <span class="wrong">X</span>
+                                    </div>
+                                    <div class="selGroup" id="select2">
+                                        <select id="radius">
+                                            <option value="default">請選擇</option>
+                                            <option value="coc">圓心</option>
+                                            <option value="radius">半徑</option>
+                                            <option value="diameter">直徑</option>
+                                            <option value="circumference">圓周</option>
+                                        </select>
+                                        <span class="wrong">X</span>
+                                    </div>
+                                    <div class="selGroup" id="select3">
+                                        <select id="coc">
+                                            <option value="default">請選擇</option>
+                                            <option value="coc">圓心</option>
+                                            <option value="radius">半徑</option>
+                                            <option value="diameter">直徑</option>
+                                            <option value="circumference">圓周</option>
+                                        </select>
+                                        <span class="wrong">X</span>
+                                    </div>
+                                    <div class="selGroup" id="select4">
+                                        <select id="diameter">
+                                            <option value="default">請選擇</option>
+                                            <option value="coc">圓心</option>
+                                            <option value="radius">半徑</option>
+                                            <option value="diameter">直徑</option>
+                                            <option value="circumference">圓周</option>
+                                        </select>
+                                        <span class="wrong">X</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 答案作答區 -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <style>
+        #circle {
+            width: 580px;
+            height: 550px;
+            background: url(images/circle.png) no-repeat;
+            margin: 0px auto;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .selGroup {
+            position: absolute;
+            width: 130px;
+            top: 24px;
+            right: 520px;
+        }
+        
+        .selGroup select {
+            font-size: 21pt;
+            border: 1px solid black;
+        }
+        
+        #select2 {
+            left: 112px;
+            top: 94px;
+        }
+        
+        #select3 {
+             left: 353px;
+             top: 173px;
+        }
+        
+        #select4 {
+              left: 214px; 
+              top: 379px;
+        }
+        
+        .wrong {
+            font-size: 18pt;
+            color: red;
+            display: none;
+        }
+        
+        .submit {
+            margin-top: 50px;
+        }
+    </style>
+
+    <script>
+        var coc = document.querySelector("#coc");
+        var circumference = document.querySelector("#circumference");
+        var radius = document.querySelector("#radius");
+        var diameter = document.querySelector("#diameter");
+
+        var coc_bool, circumference_bool, radius_bool, diameter_bool = false;
+
+        $(diameter).change(function () {
+            if ($(this).val() != "diameter") {
+                $("#select4 .wrong").show();
+                diameter_bool = false;
+                respons("這個不是" + diameter.options[diameter.selectedIndex].innerText + "，再想想")
+            } else {
+                diameter_bool = true;
+                $("#select4 .wrong").hide();
+            }
+        })
+        $(coc).change(function () {
+            if ($(this).val() != "coc") {
+                $("#select3 .wrong").show();
+                coc_bool = false;
+                respons("這個不是" + coc.options[coc.selectedIndex].innerText + "，再想想")
+            } else {
+                coc_bool = true;
+                $("#select3 .wrong").hide();
+            }
+        })
+
+        $(circumference).change(function () {
+            if ($(this).val() != "circumference") {
+                $("#select1 .wrong").show();
+                circumference_bool = false;
+                respons("這個不是" + circumference.options[circumference.selectedIndex].innerText + "，再想想")
+            } else {
+                circumference_bool = true;
+                $("#select1 .wrong").hide();
+            }
+        })
+
+        $(radius).change(function () {
+            if ($(this).val() != "radius") {
+                $("#select2 .wrong").show();
+                radius_bool = false;
+                respons("這個不是" + radius.options[radius.selectedIndex].innerText + "，再想想")
+            } else {
+                radius_bool = true;
+                $("#select2 .wrong").hide();
+            }
+        })
+
+        
+        function go_next() {
+            let selectCount = 0;
+            if (getURLParameter("auto") == 1) {
+                if (radius_bool && diameter_bool && coc_bool && circumference_bool) {
+                    ajaxInsertData();
+                    Location.href = "3-s-03_component_5.html?auto=1";
+                } else { respons("請作答完畢") }
+            } else {
+                if (radius_bool && diameter_bool && coc_bool && circumference_bool) {
+                    ajaxInsertData();
+                    responsEnd("答對了");
+                } else {
+                    let selectElm = $("select").length;
+
+                    for(let i = 0; i <= selectElm-1; i++){
+                        console.log(i)
+
+                        if($("select")[i].value == "default"){
+                            selectCount += 1;
+                        }
+                    }
+                    if (selectCount >= 1) {
+                        return respons("請作答完畢")
+                    } else {
+                        return respons("請檢查答案是否有錯")
+                    }
+                }
+            }
+        }
+    </script>
+
+
+    <div class="button">
+        <!--<div class="back"><a onclick="go_back()" title="回上一步">回上一步</a></div>
+		<div class="clean"><a onclick="cl_area()" title="清除本題所有作答內容">清除本題所有作答內容</a></div>
+		<div class="showobj" id="showRecord"><a onclick="show_record()">顯示輸入步驟</a></div>-->
+        <div class="submit"><a onclick="go_next()" title="作答完畢，往下一題">作答完畢</a></div>
+    </div>
+</body>
+
+</html>

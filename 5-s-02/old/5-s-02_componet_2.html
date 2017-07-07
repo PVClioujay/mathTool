@@ -1,0 +1,673 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title id="title">5-s-02_2</title>
+    <script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
+    <script src="../js/jquery-ui.js" type="text/javascript"></script>
+    <script src="../js/jQueryRotate.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../css/colorbox.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/jquery-ui.css" />
+    <script src="jquery.ui.touch-punch.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    function go_next() {
+
+            if (getURLParameter("auto") == 1) {
+                if ((($("#txt1").val() == 3 && $("#txt2").val() == 2) || ($("#txt1").val() == 2 && $("#txt2").val() == 3)) && $("#txt3").val() == 5) {
+                    location.href = "5-s-02_componet_3.html";
+                } else {
+                    return respons("請先選取題目當中的三線段，在下方排列好，看是否能夠組合出一個三角形。");
+                }
+            }else{
+                if ((($("#txt1").val() == 3 && $("#txt2").val() == 2) || ($("#txt1").val() == 2 && $("#txt2").val() == 3)) && $("#txt3").val()
+                    == 5) {
+                     return responsEnd("好棒！你完成了！");
+                } else {
+                    return respons("請先選取題目當中的三線段，在下方排列好，看是否能夠組合出一個三角形。");
+                }
+            }
+
+
+
+        
+    }
+    </script>
+</head>
+
+<body>
+    <!--編碼-->
+    <div class="title">能理解三角形中任意兩邊的和大於第三邊</div>
+    <table class="exam">
+        <tr>
+            <!--左側-->
+            <td class="question">
+                <!--題目-->
+                <div class="text">
+                    <p><img src="../../../images/question.gif">小朋友想想看下列長度的線段可不可以排成三角形呢？</p>
+                </div>
+                <!--題目End-->
+            </td>
+        </tr>
+        <!--左側 end-->
+        <tr>
+            <!--右側-->
+            <td>
+                <!--作答區-->
+                <div id="answer" class="answer">
+                    <div class="container">
+                        <div class="row">
+                            <!-- 圖片物件 -->
+                            <!-- 繪圖物件 -->
+                            <!-- 橫式作答區 -->
+                            <!-- 直式作答區 -->
+                            <!-- 除式作答區 -->
+                            <style>
+                            #showUserLineClick_ResultImg {
+                                background-repeat: no-repeat;
+                                background-size: auto 300px;
+                                width: 720px;
+                                height: 310px;
+                                margin: 0px auto;
+                                background-position-x: 250px;
+                            }
+                            
+                            #imgHover {
+                                width: 200px;
+                            }
+                            
+                            #Result_Btn {
+                                float: left;
+                                margin-top: 10px;
+                            }
+                            
+                            #correct {
+                                display: none;
+                                width: 545px;
+                            }
+                            </style>
+                            <div id="dialog-error" title=""></div>
+                            <div class="col-md-12 col-xs-12">
+                                <div class="trinagleLine">
+                                    <img src="../../../images/answer.gif" style="float:left">
+                                    <table>
+                                        <tr>
+                                            <td id="triangleLine_1">
+                                                <input style="float:left;margin-top:13px; margin-right:10px;" type="checkbox" value="2" name="2cm">
+                                                <img value="2" src="Triangle/Line_4.png" style="float:left; display:inline;margin-top:10px;" alt=""> </td>
+                                        </tr>
+                                        <tr>
+                                            <td id="triangleLine_2">
+                                                <input style="float:left;margin-top:13px; margin-right:10px;" type="checkbox" value="3" name="3cm">
+                                                <img value="3" src="Triangle/Line_6.png" style="float:left; display:inline;margin-top:10px;" alt=""> </td>
+                                        </tr>
+                                        <tr>
+                                            <td id="triangleLine_3">
+                                                <input style="float:left;margin-top:13px; margin-right:10px;" type="checkbox" value="5" name="5cm">
+                                                <img value="5" src="Triangle/Line_10.png" style="float:left; display:inline;margin-top:10px;" alt=""> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <!--<button id="btn_Reset" class="btn btn-primary">重選</button>-->
+                                                <button class="btn btn-primary" type="ShowResult" id="Result_Btn">組合</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="showUserLineClick_Result" style="width: 100%;height: 500px;">
+                                   
+                                        <div id="correct">
+                                            能否組合成三角形?
+                                            <input type="radio" name="line" value="yes" id="yes">無法形成三角形
+                                            <input type="radio" name="line" value="no" id="no">可以形成三角形
+                                        </div>
+                                        <div class="table_Area">
+                                            <input type="text" id="txt1">&nbsp;<span>+</span>&nbsp;
+                                            <input type="text" id="txt2">&nbsp;<span>=</span>&nbsp;
+                                            <input type="text" id="txt3">
+                                        </div>
+                                    
+          
+                                            <div id="showUserLine_wrapper">
+                                                <div id="showUserLine_Left" style="display:inline-block;margin-right: -4px;">
+                                                    <div id="left">
+                                                        <img id="left_img">
+                                                        <div id="left_point"></div>
+                                                    </div>
+                                                </div>
+                                                <div id="showUserLine_Center" style="display:inline-block;margin:-7px;">
+                                                    <img id="center_img">
+                                                </div>
+                                                <div id="showUserLine_Right" style="display:inline-block;margin-left:-9px;">
+                                                    <div id="right">
+                                                        <img id="right_img">
+                                                        <div id="right_point"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                      
+                                </div>
+                            </div>
+                            <style type="text/css">
+                            #showUserLine_wrapper {
+                                position: relative;
+                                top: 245px;
+                                /*margin-left: 73px;*/
+                                /* left: 200px; */
+                            }
+                            
+                            #left_point {
+                                position: relative;
+                                width: 15px;
+                                height: 9px;
+                                border-radius: 10px;
+                                background-color: orange;
+                                top: -7px;
+                                z-index: -10;
+                                opacity: 0;
+                            }
+                            
+                            #right_point {
+                                width: 9px;
+                                height: 9px;
+                                border-radius: 10px;
+                                background-color: orange;
+                                opacity: 0;
+                                z-index: -10;
+                                float: right;
+                                position: relative;
+                                top: -1px;
+                                left: -8px;
+                            }
+                            
+                            #left {
+                                display: inline-block;
+                            }
+                            
+                            #right {
+                                display: inline-block;
+                            }
+                            
+                            .table_Area {
+                                display: none;
+								width: 545px;
+								text-align: left;
+                            }
+                            
+                            #txt1,
+                            #txt2,
+                            #txt3 {
+                                border-bottom: 1px solid black;
+                                width: 100px;
+                                text-align: center;
+                                background-color: white;
+                            }
+                            </style>
+                            <script>
+                            let triangleLineVal = [];
+                            let tmp_array = [];
+                            let recrodHornCacuUserInp = [];
+                            let count = 1;
+                            let isTriangle = false;
+                            let triangle_equal = false;
+                            let triangle_smaller = false;
+                            let isOverlap;
+                            let colorLine;
+                            let colorLine2;
+                            $("input[type='checkbox']").click(function() {
+                                console.log($(this).val());
+
+                                if ($(this).attr("checked") == "checked") {
+                                    $(this).removeAttr("checked");
+                                    let triangleLineVal_index = triangleLineVal.indexOf($(this).val());
+                                    triangleLineVal.splice(triangleLineVal_index, 1);
+                                    console.log(triangleLineVal);
+                                } else {
+                                    $(this).attr("checked", "checked");
+                                    triangleLineVal.push($(this).val());
+                                    console.log(triangleLineVal);
+                                }
+                            })
+
+                            $("input[type='radio']").click(function() {
+
+                                console.log($("input[type='radio']:checked"));
+
+                                if (typeof triangleLineVal == "undefined") {
+                                    return respons("再用其它線段試試看，有沒有其它組合？");
+                                }
+
+                                if (triangle_equal && $("input[type='radio']:checked").val() == "yes") {
+
+                                    if (tmp_array.indexOf($("#right_img").attr("value") + "-" + $("#showUserLine_Center > img").attr("value") + "-" + $("#right_img").attr("value") != -1)) {
+                                        tmp_array.push($("#left_img").attr("value") + "-" + $("#showUserLine_Center > img").attr("value") + "-" + $("#right_img").attr("value"));
+                                        //$(".table_Area").append("<span class='combo'>"+"("+ count +")"+ $("#left_img").attr("value") + "cm+" + $("#showUserLine_Center > img").attr("value") + "cm>" + $("#right_img").attr("value") + "cm</span>&nbsp");
+                                        count += 1;
+                                        triangleLineVal.length = 0;
+                                        isTriangle = false;
+                                        $("input[type='radio']").attr("disabled", 'disabled');
+                                        $(".table_Area").css('display','inline-block');
+                                    }
+                                } else {
+                                    return respons("請想想看，2cm加3cm等於5cm，它與5cm重疊或對齊擺放只形成一條直線，所以無法組成三角形喔！");
+                                }
+                            })
+
+                            $("#Result_Btn").click(function() {
+                                if (tmp_array.indexOf(triangleLineVal[0] + "-" + triangleLineVal[1]) != -1) {
+                                    $("input[type='checkbox']:checked").attr("checked", false);
+                                    $("input[type='radio']:checked").attr("checked", false);
+                                    triangleLineVal.length = 0;
+                                    return respons("已經有相同的圖形，再試試別的");
+                                }
+                                isTriangle = false;
+                                triangle_equal = false;
+                                triangle_smaller = false;
+
+                                if (triangleLineVal.length == 3) {
+                                    let triangleLineVal_ABS = Math.abs(parseInt(triangleLineVal[0]) - parseInt(triangleLineVal[1]));
+
+                                    $("input[type='checkbox']").removeAttr("checked");
+
+                                    $("#showUserLine_Left > #left").removeAttr("style");
+                                    $("#showUserLine_Center > img").removeAttr("style");
+                                    $("#showUserLine_Right > #right").removeAttr("style");
+
+                                    $("img[id$=_img]").removeAttr("width");
+
+                                    $("#showUserLine_Left > #left > img").attr("src", "Triangle/" + triangleLineVal[0] + ".png");
+                                    $("#showUserLine_Left > #left > img").attr("value", triangleLineVal[0]);
+                                    $("#showUserLine_Center > img").attr("src", "Triangle/" + triangleLineVal[1] + ".png");
+                                    $("#showUserLine_Center > img").attr("value", triangleLineVal[1]);
+                                    $("#showUserLine_Right > #right > img").attr("src", "Triangle/" + triangleLineVal[2] + ".png");
+                                    $("#showUserLine_Right > #right > img").attr("value", triangleLineVal[2]);
+                                    // $("#showUserLine_Right > #right > img").attr("width",$("#showUserLine_Right > #right > img").width());
+
+                                    $("#showUserLine_Left > #left > img").css("height", "5px");
+                                    $("#showUserLine_Center > img").css("height", "5px");
+                                    $("#showUserLine_Right > #right > img").css("height", "5px");
+
+                                    console.log($("#right_img"));
+
+                                    // rotation($("#right"));
+                                    // rotation($("#left"));
+                                    console.log(parseInt(triangleLineVal[0]) + parseInt(triangleLineVal[1]) > parseInt(triangleLineVal[2]),
+                                            Math.abs(parseInt(triangleLineVal[0]) - parseInt(triangleLineVal[1])) < parseInt(triangleLineVal[2]))
+                                        //兩邊和大於第三邊，且相減小於第三邊
+                                    if (triangleLineVal[0] == 2) {
+                                        colorLine = "黃色";
+                                    } else if (triangleLineVal[0] == 3) {
+                                        colorLine = "橘色";
+                                    } else if (triangleLineVal[0] == 5) {
+                                        colorLine = "紫色";
+                                    }
+
+                                    if (triangleLineVal[2] == 2) {
+                                        if (typeof(colorLine) == "undefined") {
+                                            colorLine = "黃色";
+                                        } else {
+                                            colorLine2 = "黃色";
+                                        }
+                                    } else if (triangleLineVal[2] == 3) {
+                                        if (typeof(colorLine) == "undefined") {
+                                            colorLine = "橘色";
+                                        } else {
+                                            colorLine2 = "橘色";
+                                        }
+                                    } else if (triangleLineVal[2] == 5) {
+                                        if (typeof(colorLine) == "undefined") {
+                                            colorLine = "紫色";
+                                        } else {
+                                            colorLine2 = "紫色";
+                                        }
+                                    }
+
+                                    if ((parseInt(triangleLineVal[0]) + parseInt(triangleLineVal[1]) == parseInt(triangleLineVal[2])) ||
+                                        (parseInt(triangleLineVal[1]) + parseInt(triangleLineVal[2]) == parseInt(triangleLineVal[0])) ||
+                                        (parseInt(triangleLineVal[2]) + parseInt(triangleLineVal[1]) == parseInt(triangleLineVal[0]))) {
+                                        triangle_equal = true;
+                                    	$("#correct").show();
+                                        $("img[id$='_img']").removeAttr("width");
+
+                                        if ($("#right_img").attr('value') == 2) {
+                                            $("#right_img").attr('width', '111px');
+                                        } else if ($("#left_img").attr('value') == 2) {
+                                            $("#left_img").attr('width', '111px');
+                                        } else if ($("#center_img").attr('value') == 2) {
+                                            $("#center_img").attr('width', '111px')
+                                        }
+
+                                        if ($("#left_img").attr('value') == 3) {
+                                            $("#left_img").attr('width', '311px');
+                                        } else if ($("#right_img").attr('value') == 3) {
+                                            $("#right_img").attr('width', '311px');
+                                        } else if ($("#center_img").attr('value') == 3) {
+                                            $("#center_img").attr('width', '311px');
+                                        }
+
+                                        if ($("#center_img").attr('value') == 5) {
+                                            $("#center_img").attr('width', '422px');
+                                        } else if ($("#right_img").attr('value') == 5) {
+                                            $("#right_img").attr('width', '422px');
+                                        } else if ($("#left_img").attr('value') == 5) {
+                                            $("#left_img").attr('width', '422px');
+                                        }
+                                        respons("你要注意喔！另外兩邊的和跟第三邊相等，這樣無法組合成三角形請試著旋轉線段" + colorLine + "," + colorLine2);
+                                    } else if ((parseInt(triangleLineVal[0]) + parseInt(triangleLineVal[1]) < parseInt(triangleLineVal[2])) ||
+                                        (parseInt(triangleLineVal[1]) + parseInt(triangleLineVal[2]) < parseInt(triangleLineVal[0])) ||
+                                        (parseInt(triangleLineVal[2]) + parseInt(triangleLineVal[1]) < parseInt(triangleLineVal[0]))) {
+                                        triangle_smaller = true;
+                                        respons("你要注意喔！另外兩邊沒有接起來，這樣無法組合成三角形。請試著旋轉線段" + colorLine + "," + colorLine2);
+                                    } else {
+                                        if ($("#right_img").attr("value") == 10 || $("#left_img").attr("value") == 10) {
+                                            console.log("123");
+                                            triangle_equal = true;
+                                            $("#correct").show();
+                                             if ($("#right_img").attr('value') == 2) {
+	                                            $("#right_img").attr('width', '111px');
+	                                        } else if ($("#left_img").attr('value') == 2) {
+	                                            $("#left_img").attr('width', '111px');
+	                                        } else if ($("#center_img").attr('value') == 2) {
+	                                            $("#center_img").attr('width', '111px')
+	                                        }
+
+	                                        if ($("#left_img").attr('value') == 3) {
+	                                            $("#left_img").attr('width', '311px');
+	                                        } else if ($("#right_img").attr('value') == 3) {
+	                                            $("#right_img").attr('width', '311px');
+	                                        } else if ($("#center_img").attr('value') == 3) {
+	                                            $("#center_img").attr('width', '311px');
+	                                        }
+
+	                                        if ($("#center_img").attr('value') == 5) {
+	                                            $("#center_img").attr('width', '422px');
+	                                        } else if ($("#right_img").attr('value') == 5) {
+	                                            $("#right_img").attr('width', '422px');
+	                                        } else if ($("#left_img").attr('value') == 5) {
+	                                            $("#left_img").attr('width', '422px');
+	                                        }
+
+                                        } else {
+                                        	triangle_equal = true;
+                                        	$("#correct").show();
+                                             if ($("#right_img").attr('value') == 2) {
+	                                            $("#right_img").attr('width', '111px');
+	                                        } else if ($("#left_img").attr('value') == 2) {
+	                                            $("#left_img").attr('width', '111px');
+	                                        } else if ($("#center_img").attr('value') == 2) {
+	                                            $("#center_img").attr('width', '111px')
+	                                        }
+
+	                                        if ($("#left_img").attr('value') == 3) {
+	                                            $("#left_img").attr('width', '311px');
+	                                        } else if ($("#right_img").attr('value') == 3) {
+	                                            $("#right_img").attr('width', '311px');
+	                                        } else if ($("#center_img").attr('value') == 3) {
+	                                            $("#center_img").attr('width', '311px');
+	                                        }
+
+	                                        if ($("#center_img").attr('value') == 5) {
+	                                            $("#center_img").attr('width', '422px');
+	                                        } else if ($("#right_img").attr('value') == 5) {
+	                                            $("#right_img").attr('width', '422px');
+	                                        } else if ($("#left_img").attr('value') == 5) {
+	                                            $("#left_img").attr('width', '422px');
+	                                        }
+
+                                        }
+                                        respons("你要注意喔！另外兩邊的和跟第三邊相等，這樣無法組合成三角形。請試著旋轉線段" + colorLine + "," + colorLine2);
+                                    }
+
+                                } else {
+
+                                    if (triangleLineVal.length == 2) {
+                                        respons("請再選取三條線段，看是否能夠組合出一個三角形。");
+                                        triangleLineVal.length = 0;
+                                    } else if (triangleLineVal.length > 3) {
+                                        triangleLineVal.length = 0;
+                                        $("input[type='checkbox']").removeAttr("checked");
+                                        respons("你要注意喔！三角形的邊總共是3個。");
+                                    } else if (triangleLineVal.length.length == 0) {
+                                        respons("請先選取三條線段，在下方排列好，再選取兩條適當的線段與它組合，看是否能夠組合出一個三角形。");
+                                    }
+                                }
+
+                                // console.log(triangleLineVal);
+
+                                // triangleLineVal.length = 0;
+
+                                $("input[type='checkbox']:checked").attr("checked", false);
+                                $("input[type='radio']:checked").attr("checked", false);
+                                triangleLineVal.length = 0;
+
+                            })
+
+                             rotation($("#right")); 
+                             rotation($("#left"));
+
+                            $("#txt1").change(function() {
+                                if ($("#txt1").val() == $("#txt2").val()) {
+                                    return respons("已有重複");
+                                }
+                                if ($(this).val() != 2 && $(this).val() != 3 && $(this).val() != 5) {
+                                    return respons("此題只有三種線段，請填入2、3或5");
+                                } else if ($(this).val() == 5) {
+                                    $(this).val("");
+                                    return respons("此題的和是5cm，不會出現在被加數");
+                                } else if ($(txt1).val() == 2 || $(txt1).val() == 3) {
+                                    $(this).attr("disabled", "disabled");
+                                }
+                            })
+                            $("#txt2").change(function() {
+                                if ($("#txt1").val() == $("#txt2").val()) {
+
+                                    return respons("已有重複");
+                                }
+                                if ($(this).val() != 2 && $(this).val() != 3 && $(this).val() != 5) {
+                                    return respons("此題只有三種線段，請填入2、3或5");
+                                } else if ($(this).val() == 5) {
+                                    $(this).val("");
+                                    return respons("此題的和是5cm，不會出現在被加數");
+                                } else if ($(txt2).val() == 2 || $(txt2).val() == 3) {
+                                    $(this).attr("disabled", "disabled");
+                                }
+                            })
+                            $("#txt3").change(function() {
+                                if (($("#txt1").val() == 2 || $("#txt1").val() == 3) && ($("#txt2").val() == 2 || $("#txt2").val() == 3) && $("#txt3").val() == 5) {
+                                    $(".button").show();
+                                    $(this).attr("disabled", "disabled");
+                                    $("#respons").text("兩短邊長度的和等於第三邊長度，就變成一直線，無法排成三角形。");
+                                } else if ($(this).val() == 2 || $(this).val() == 3) {
+                                    $(this).val("");
+                                    return respons("此題的和是5cm，2是加數或被加數");
+                                } else if ($(this).val() == 5) {
+                                    $(this).attr("disabled", "disabled");
+                                } else {
+
+                                    return respons("此題長度最長是5cm，請填入5");
+                                }
+                            })
+
+                            function rotation(elem) {
+                                let getCSSatan2Deg_left, getCSSatan2Deg_right = 0,
+                                    center_x = 0,
+                                    center_y = 0;
+                                let startingDegrees = 0,
+                                    lastDegrees = 0,
+                                    currentDegrees = 0;
+                                let offset = $(elem).offset();
+                                // let center_x = (offset.left) + ( $(elem).width() / 2); 
+                                // let center_y = (offset.top) + ( $(elem).height() / 2);
+                                // console.log(center_x, center_y);
+
+                                function rotateOnMouse(e) {
+                                    let mouse_x = e.pageX;
+                                    let mouse_y = e.pageY;
+
+                                    center_x = (offset.left) + ($(elem).width() / 2);
+                                    center_y = (offset.top) + ($(elem).height() / 2);
+
+                                    let radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+                                    let degree = radians * (180 / Math.PI) - startingDegrees + lastDegrees;
+                                    currentDegrees = degree;
+                                    /*if(degree < 0 ){
+                                        degree = Math.abs(degree);
+                                    }*/
+
+                                    console.log(degree)
+                                        // console.log(elem);
+                                    if (elem.attr("id") == "left") {
+                                        $(elem).css('-moz-transform', 'rotate(' + -degree + 'deg)');
+                                        $(elem).css('-webkit-transform', 'rotate(' + -degree + 'deg)');
+                                        $(elem).css('-o-transform', 'rotate(' + -degree + 'deg)');
+                                        $(elem).css('-webkit-transform-origin', '100% 15%');
+                                        if (elem.attr("src") == "Triangle/10.png") {
+                                            $(elem).css('-webkit-transform-origin', '99.5% 15%');
+                                        }
+                                        getCSSatan2Deg_left = transCSSdeg("left");
+                                        // console.log(getCSSatan2Deg_left);
+                                    } else {
+                                        $(elem).css('-moz-transform', 'rotate(' + -degree + 'deg)');
+                                        $(elem).css('-webkit-transform', 'rotate(' + -degree + 'deg)');
+                                        $(elem).css('-o-transform', 'rotate(' + -degree + 'deg)');
+                                        $(elem).css('-webkit-transform-origin', '0% 25%');
+
+                                        getCSSatan2Deg_right = transCSSdeg("right");
+                                        // console.log(getCSSatan2Deg_right);
+                                    }
+                                }
+
+                                $(elem).mousedown(function(e) {
+                                    let mouse_x = e.pageX;
+                                    let mouse_y = e.pageY;
+                                    // console.log("mouse_x:" + mouse_x +","+"mouse_y:"+mouse_y);
+                                    console.log($(elem).width(), $(elem).height())
+                                    center_x = (offset.left) + ($(elem).width() / 2);
+                                    center_y = (offset.top) + ($(elem).height() / 2);
+                                    let radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+                                    console.log(radians);
+                                    startingDegrees = radians * (180 / Math.PI);
+                                    console.log(startingDegrees);
+                                    $(document).bind('mousemove.rotateImg', function(e2) {
+                                        rotateOnMouse(e2, $(elem));
+                                    });
+                                });
+
+                                $(document).mouseup(function(e) {
+                                    lastDegrees = currentDegrees;
+                                    // doElsCollide($("#showUserLine_Left"), $("#line1"));
+                                    // doElsCollide($("#showUserLine_Right"), $("#line1"));
+                                    // console.log(overlaps($("#right_img"), $("#left_img")));
+                                    console.log(checkCollisions());
+                                    isOverlap = checkCollisions(); //  let getCSSatan2Deg_left, getCSSatan2Deg_right = 0;
+                                    if ((getCSSatan2Deg_left == 180 || getCSSatan2Deg_left == 179) || (getCSSatan2Deg_right == -180 || getCSSatan2Deg_right == -179)) {
+                                        isTriangle = false;
+                                    }
+
+                                    // if (isOverlap && (isTriangle || triangle_equal || triangle_smaller)) {
+                                    //     $("#correct").show();
+                                    // } else {
+                                    //     $("#correct").hide();
+                                    // }
+
+
+
+                                    $(document).unbind('mousemove.rotateImg');
+                                });
+                            };
+
+
+                            function transCSSdeg(elem) {
+                                let el = document.getElementById(elem);
+                                let st = window.getComputedStyle(el, null);
+                                let tr = st.getPropertyValue("transform");
+
+
+                                // console.log('Matrix: ' + tr);
+
+
+                                let values = tr.split('(')[1];
+                                values = values.split(')')[0];
+                                values = values.split(',');
+                                let a = values[0];
+                                let b = values[1];
+                                let c = values[2];
+                                let d = values[3];
+
+                                let scale = Math.sqrt(a * a + b * b);
+
+                                let sin = b / scale;
+                                let angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+
+                                // console.log('Rotate: ' + angle + 'deg');
+                                return angle;
+                            }
+
+                            function comparePositions(p1, p2) {
+                                console.log(p1, p2)
+                                var x1 = p1[0] < p2[0] ? p1 : p2;
+                                var x2 = p1[0] < p2[0] ? p2 : p1;
+                                //console.log(x1[0], x1[1])
+                                //console.log(x2[0], x2[1])
+
+                                //   var x1 = Math.floor(p1[0]);
+                                //   var x2 = Math.floor(p2[0]);
+                                //   var y1 = Math.floor(p1[1]);
+                                //   var y2 = Math.floor(p2[1]);
+                                //   console.log(x1, y1) 
+                                //   console.log(x2, y2)
+
+                                return x1[1] > x2[0] || x1[0] === x2[0] ? true : false;
+                                // return x1[1] > x2[0] ? true : false;
+                                // return x1 === x2 &&  y1 === y2 ? true : false;
+                            }
+
+                            function getPositions(box) {
+                                var $box = document.getElementById(box);
+                                // console.log($box)
+                                var boxElem = $box.getBoundingClientRect();
+                                return boxElem;
+                            }
+
+                            function checkCollisions() {
+                                // var box = $("right_point")[0];
+                                var rect1 = getPositions("right_point");
+                                var rect2 = getPositions("left_point");
+                                var overlap = !(rect1.right < rect2.left ||
+                                    rect1.left > rect2.right ||
+                                    rect1.bottom < rect2.top ||
+                                    rect1.top > rect2.bottom);
+                                console.log(overlap);
+                                return overlap;
+                            }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- 答案作答區 -->
+            </td>
+        </tr>
+    </table>
+    <div class="button">
+        <!--<div class="back"><a onclick="go_back()" title="回上一步">回上一步</a></div>
+        <div class="showobj" id="showRecord"><a onclick="show_record()">顯示輸入步驟</a></div>-->
+        <!--<div class="clean"><a onclick="cl_area()" title="清除本題所有作答內容">X</a></div>-->
+        <div class="submit"><a onclick="go_next()" title="作答完畢，回上一頁">下一題</a></div>
+    </div>
+    <script src="../js/pvc_script.js"></script>
+    <!-- 左邊伸縮選單 操作工具  end-->
+</body>
+
+</html>

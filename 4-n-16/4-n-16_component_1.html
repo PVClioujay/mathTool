@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ 	<title id="title">4-n-16_1</title>
+	<script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
+<script src="../js/jquery-ui.js" type="text/javascript"></script>
+<script src="../js/jQueryRotate.js" type="text/javascript"></script>
+<script type="text/javascript" src="../js/pvc_script.js	"></script>
+<script src="../js/colorbox/jquery.colorbox.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<link rel="stylesheet" href="../css/colorbox.css" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/jquery-ui.css" />
+<script src="jquery.ui.touch-punch.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+</script>
+<script src="../js_function/formula_function.js"></script>
+<!-- 載入計算機function  -->
+<script src="../js_function/input_by_formula.js"></script>
+<!-- 點選input時，跳出燈箱，然後用計算機選擇輸入值 -->
+<script src="../js_function/goback_result.js"></script>
+<!-- 顯示步驟與輸入步驟 -->
+<script src="../js_function/rotation_type.js"></script>
+<!-- 物件順時針或逆時針逆時鐘 -->
+<script src="../js_function/canvas_funtion.js"></script>
+<!-- 畫布 -->
+<link rel="stylesheet" href="../components/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../components/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+<script src="../components/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+<!--步驟說明-->
+<script src="../js/jquery.tabSlideOut.v1.3.js"></script>
+    <script language="javascript">
+
+
+        function go_next() {
+          //alert( $("#cornor1").attr("checked") );
+            if ($("#cornor1").attr("checked") == "checked") {
+                ajaxInsertData();
+                if(getURLParameter("auto") == 1){
+                    location.href = "4-n-16_component_2.html?auto=1";
+                }else{
+                    location.href = "4-n-16_component_2.html";
+                }
+                //location.href = "4-n-16_component_2.html";
+
+            } else {
+               respons("還記得嗎？需要「兩條直線」和「一個頂點」才能構成一個角喔！")
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <!--編碼-->
+    <div class="title">能認識角度單位度，並使用量角器實測角度或劃出指定的角。</div>
+
+    <table class="exam">
+        <tr>
+            <!--左側-->
+            <td class="question">
+                 <div class="text">
+                    <img src="../../../images/question.gif" style="float: left;">
+                    請你判別，下列圖形，哪個才能說是「角」
+                </div>
+                <!--題目End-->
+            </td>
+
+
+        </tr>
+        <!--左側 end-->
+        <style>
+            input[type='radio'] {
+                bottom: 680px;
+            }
+
+            div[id^='cornor'] > img {
+                margin-left: 110px;
+            }
+
+            #cornor_2 {
+                margin-top: 60px;
+            }
+        </style>
+        <tr>
+
+            <!--右側-->
+            <td>
+                <!--作答區-->
+<div id="dialog-error" title=""></div>
+
+                <img src="../../../images/answer.gif">
+                <div id="answer" class="answer">
+                    <!-- 圖片物件 -->
+                    <!-- 繪圖物件 -->
+                    <!-- 橫式作答區 -->
+                    <!-- 直式作答區 -->
+                    <!-- 除式作答區 -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div id="cornor_1" style="display:inline;">
+                                    <label><input type="radio" name="cornor" id="cornor1" value="yes">
+                                    <img src="cornor/event_1A.png" width="350px"></label>
+                                </div>
+                                <div id="cornor_2" style="display:inline;">
+                                    <label><input style="bottom:480px" type="radio" name="cornor" id="cornor2" value="no">
+                                    <img src="cornor/event_1B.png" width="350px"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 答案作答區 -->
+            </td>
+        </tr>
+    </table>
+    <script>
+        $("input[name=cornor]").change(function(){
+            if($(this).attr("id") == "cornor1"){
+                $("#cornor1").attr('checked', 'checked');
+            }else{
+                $("#cornor1").removeAttr('checked');
+                respons("還記得嗎？需要「兩條直線」和「一個頂點」才能構成一個角喔！")
+            }
+        })
+
+         function respons(txt){
+                     $("#dialog-error").text(txt);
+                    $("#dialog-error").dialog({
+                        resizable: false,
+                        height: "auto",
+                        width: 400,
+                        modal: true,
+                        buttons: {
+                            確定: function() {
+                                $(this).dialog("close");
+                            }
+                        }
+                    });
+                    $(".ui-dialog-titlebar-close").remove();
+                    $(".ui-dialog-titlebar").remove();
+                    let chiBtn = $(".ui-dialog-buttonset").children("button");
+                    chiBtn.attr("class", "btn btn-primary");
+        }
+    </script>
+    <div class="button">
+        <button class="btn btn-primary" onclick="go_next()">作答完畢</button>
+        <!--<div class="back"><a onclick="go_back()" title="回上一步">回上一步</a></div>
+        <div class="clean"><a onclick="cl_area()" title="清除本題所有作答內容">清除本題所有作答內容</a></div>
+        <div class="showobj" id="showRecord"><a onclick="show_record()">顯示輸入步驟</a></div>-->
+    </div>
+
+    <!-- 左邊伸縮選單 操作工具  end-->
+</body>
+
+</html>

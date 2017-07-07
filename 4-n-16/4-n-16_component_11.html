@@ -1,0 +1,587 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title id="title">4-n-16</title>
+    <script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
+    <script src="../js/jquery-ui.js" type="text/javascript"></script>
+    <script src="../js/jQueryRotate.js" type="text/javascript"></script>
+    <script src="../js/colorbox/jquery.colorbox.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../css/colorbox.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/jquery-ui.css" />
+    <script src="jquery.ui.touch-punch.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+        <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+            crossorigin="anonymous">
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+                <link rel="stylesheet" href="../components/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+                <link rel="stylesheet" href="../components/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+                <script src="../components/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+                <!--步驟說明-->
+                <script src="../js/jquery.tabSlideOut.v1.3.js"></script>
+                <!-- 畫布 -->
+                <script language="javascript">
+                    function go_next() {
+                        // if (draw_x_y == true && protractor_bool == true) {
+                        //     location.href = "4-n-16_component_11.html";
+                        // }
+                        if (draw_x_y == true) {
+                            ajaxInsertData();
+                            if (getURLParameter("auto") == 1) {
+                                return responsEnd("恭喜你完成了!挑戰成功!");
+                                // location.href="4-n-16_component_7.html?auto=1";
+                                // location.href = "4-n-16_component_4.html";
+                            } else {
+                                return responsEnd("恭喜你完成了!挑戰成功!");
+                            }
+                        } else if(cir == true){
+                            return respons("請使用直尺並沿著標記點畫線")
+                        } else {
+                            return respons("這個角的開口朝左邊，記得要從黑色的0開始數角度。")
+                        }
+                    }
+                </script>
+                <style>
+                    .slide-out-div {
+                        display: block;
+                    }
+                    
+                    .tools-panel {
+                        display: block;
+                    }
+                    
+                    #obj_protractor {
+                        position: absolute;
+                        bottom: 119px;
+                        z-index: 99;
+                    }
+                    
+                    .exam {
+                        background: url(../images/content-topbg.png) repeat-x top;
+                    }
+                    
+                    #arrow_rotate {
+                        background: url('../images/arrow_unhover.png') no-repeat;
+                        width: 130px;
+                        height: 30px;
+                        position: relative;
+                        top: 28px;
+                        left: 266px;
+                        background-size: 100%;
+                        transform: rotate(95deg);
+                        /*width: 130px;
+    height: 30px;
+    position: absolute;
+    top: 130px;
+    left: 343px;
+    background-size: 100%;
+    transform: rotate(76deg);*/
+                    }
+                    
+                    #arrow_rotate:hover,
+                    #arrow_rotate:active {
+                        background-image: url('../images/arrow_hover.png');
+                    }
+                    
+                    #point {
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 5px;
+                        background-color: blue;
+                        position: absolute;
+                        left: 568px;
+                        top: 97px;
+                    }
+                    
+                    #point2 {
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 11px;
+                        background-color: black;
+                        position: absolute;
+                        left: 728px;
+                        top: 270px;
+                        z-index: 99;
+                    }
+                </style>
+</head>
+
+<body>
+    <!--編碼-->
+    <div class="title">能認識角度單位度，並使用量角器實測角度或劃出指定的角。</div>
+    <table class="exam">
+        <tr>
+            <!--左側-->
+            <td class="question">
+                <!--題目-->
+                <div class="text">
+                    <img src="../../../images/question.gif" style="    position: relative;top: 20px;"> 請使用量角器，做出一個開口朝左，角度為130度的角
+
+                </div>
+
+                <!--題目End-->
+            </td>
+        </tr>
+        <!--左側 end-->
+        <tr>
+            <!--右側-->
+            <td>
+                <!--作答區-->
+                <!-- 圖片物件 -->
+                <!-- 繪圖物件 -->
+                <!-- 繪圖區物件 -->
+                <div id="dialog-error" title=""></div>
+                <img src="../../../images/answer.gif" style="    position: relative;top: 30px;">
+                <div id="answer" class="answer">
+                    <!-- 圖片物件 -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12" style="height:380px;">
+                                <button id="clear" class="btn btn-danger">重畫</button>
+                                <div id="point2"></div>
+                                <img id="drawAngle" src="cornor/l1.png" style="position: absolute;left:400px;top:269px;z-index:-99;">
+                                <canvas id="canvas" width="670" height="300"></canvas>
+                                <div id="point"></div>
+                                <div id="obj_protractor">
+                                    <div id="protractor" class="protractor">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- 繪圖區物件 End.-->
+                <!-- 橫式作答區 -->
+                <!-- 直式作答區 -->
+                <!-- 除式作答區 -->
+                <!-- 答案作答區 -->
+            </td>
+        </tr>
+    </table>
+    <div class="button">
+        <!--<div class="back"><a onclick="go_back()" title="回上一步">回上一步</a></div>
+        <div class="clean"><a onclick="cl_area()" title="清除本題所有作答內容">清除本題所有作答內容</a></div>
+        <div class="showobj" id="showRecord"><a onclick="show_record()">顯示輸入步驟</a></div>-->
+        <div class="submit"><a onclick="go_next()" title="作答完畢，回上一頁">作答完畢</a></div>
+    </div>
+    <script>
+        $("#point").hide();
+                                        $("#clear").hide();
+                                        var draw_x_y = false;
+                                        let cssDeg = 0;
+                                        var cir = false;
+                                        let rulerCollison, rulerCollison2 = false;
+                                        $("#point").draggable({
+                                            stop: function (event, ui) {
+                                                //紀錄移動區域
+                                                clickprotractor = true;
+                                                var offset = $(this).offset();
+                                                var xPos = offset.left;
+                                                var yPos = offset.top;
+                                                var x_y = ui.position.left + "," + ui.position.top;
+                                                // total_record_array.push("m||protractor||" + x_y);
+                                                
+                                                if ((905 <= ui.position.left && ui.position.left <= 910)) {
+                                                    console.log("qwe");
+                                                    if (50 <= ui.position.top && ui.position.top <= 60) {
+                                                        console.log("qwea");
+                                                        protractor_bool = true;
+                                                        cir = true;
+                                                        // $("canvas").css("z-index",99);
+                                                        $(".col-md-12, .col-xs-12").append('<div id="obj_ruler" style="position:absolute;"><div id="ruler" class="ruler"><div id="arrow_rotate"></div></div>');
+                                                        ruler_drag();
+                                                        ruler_rotation();
+                                                        cssDeg = parseInt(transCSSdeg("ruler"));
+                                                        $("#point").css("z-index", '-10');
+                                                        $("#obj_protractor").hide();
+                                                        $("#step").text("請把直尺放置於藍色圓點及黑色圓點之間");
+                                                    }
+                                                }
+                                            },
+
+                                            drag: function (event, ui) {
+                                                let miliSecond = new Date();
+                                                miliSecond = miliSecond.getTime() - itemstart.getTime();
+                                                console.log(miliSecond);
+                                                if (typeof pageName == "string") {
+                                                    tmpRecordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + "_1;id:point@XX@left@XX@" + ui.position.left + "@XX@top@XX@" + ui.position.top + ";" + miliSecond + ";" + "}@xx@";
+                                                } else {
+                                                    recordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + ";id:point@XX@left@XX@" + ui.position.left + "@XX@top@XX@" + ui.position.top + ";" + miliSecond + ";" + "}@xx@";
+                                                }
+                                                if (typeof recordStr != "undefined") {
+                                                    recordStr = recordStr + tmpRecordStr[0];
+                                                } else {
+                                                    recordStr = tmpRecordStr[0];
+                                                }
+                                            }
+                                        });
+
+                                        $("#obj_protractor").draggable({
+                                            stop: function (event, ui) {
+                                                //紀錄移動區域
+                                                clickprotractor = true;
+                                                var offset = $(this).offset();
+                                                var xPos = offset.left;
+                                                var yPos = offset.top;
+                                                var x_y = ui.position.left + "," + ui.position.top;
+                                                // total_record_array.push("m||protractor||" + x_y);
+                                                console.log("滑鼠移動" + x_y);
+                                                if ((445 <= ui.position.left && ui.position.left <= 455)) {
+                                                    console.log("qwe");
+                                                    if (0 >= ui.position.top && ui.position.top >= -10) {
+                                                        console.log("qwea");
+                                                        protractor_bool = true;
+                                                        $("#obj_protractor").css("z-index", "-10");
+                                                        $("#point").css("z-index", "99");
+                                                        $("#step").text("請將藍色圓點，標記於角度上")
+                                                        $("#point").show();
+
+                                                    } else {
+                                                        protractor_bool = false;
+                                                        return respons("記得「量角器的中心點」要對齊「角的頂點」！");
+                                                    }
+                                                } else {
+                                                    protractor_bool = false;
+                                                    return respons("記得「量角器的中心點」要對齊「角的頂點」！");
+                                                }
+                                            },
+                                            drag: function (event, ui) {
+                                                let miliSecond = new Date();
+                                                miliSecond = miliSecond.getTime() - itemstart.getTime();
+                                                console.log(miliSecond);
+                                                if (typeof pageName == "string") {
+                                                    tmpRecordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + "_1;id:obj_protractor@XX@left@XX@" + ui.position.left + "@XX@top@XX@" + ui.position.top + ";" + miliSecond + ";" + "}@xx@";
+                                                } else {
+                                                    recordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + ";id:obj_protractor@XX@left@XX@" + ui.position.left + "@XX@top@XX@" + ui.position.top + ";" + miliSecond + ";" + "}@xx@";
+                                                }
+                                                if (typeof recordStr != "undefined") {
+                                                    recordStr = recordStr + tmpRecordStr[0];
+                                                } else {
+                                                    recordStr = tmpRecordStr[0];
+                                                }
+                                            }
+                                        });
+
+                                        function ruler_drag() {
+                                            $("#obj_ruler").draggable({
+                                                stop: function (event, ui) {
+                                                    //紀錄移動區域
+                                                    clickprotractor = true;
+
+                                                    var offset = $(this).offset();
+                                                    var xPos = offset.left;
+                                                    var yPos = offset.top;
+                                                    var x_y = ui.position.left + "," + ui.position.top;
+
+                                                    rulerCollison = checkCollisions("point", "ruler");
+                                                    rulerCollison2 = checkCollisions("point2", "ruler");
+                                                    // total_record_array.push("m||protractor||" + x_y);
+                                                    console.log("滑鼠移動" + x_y);
+                                                    if (rulerCollison2 && rulerCollison) {
+                                                        console.log("123dsa")
+                                                        $("img").css("z-index", "-99");
+                                                        $("#point").css("z-index", "-99");
+                                                        $("#point2").css("z-index", "-99");
+                                                        respons("請使用直尺並沿著標記點畫線")
+                                                        drawLine();
+                                                    } else {
+                                                        rulerCollison = false;
+                                                        rulerCollison2 = false;
+                                                    }
+                                                },
+                                                drag: function (event, ui) {
+                                                    let miliSecond = new Date();
+                                                    miliSecond = miliSecond.getTime() - itemstart.getTime();
+                                                    console.log(miliSecond);
+                                                    if (typeof pageName == "string") {
+                                                        tmpRecordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + "_1;id:obj_ruler@XX@left@XX@" + ui.position.left + "@XX@top@XX@" + ui.position.top + ";" + miliSecond + ";" + "}@xx@";
+                                                    } else {
+                                                        recordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + ";id:obj_ruler@XX@left@XX@" + ui.position.left + "@XX@top@XX@" + ui.position.top + ";" + miliSecond + ";" + "}@xx@";
+                                                    }
+                                                    if (typeof recordStr != "undefined") {
+                                                        recordStr = recordStr + tmpRecordStr[0];
+                                                    } else {
+                                                        recordStr = tmpRecordStr[0];
+                                                    }
+                                                }
+                                            });
+                                        }
+
+                                        function ruler_rotation() {
+                                            var startingDegrees = 0,
+                                                lastDegrees = 0,
+                                                currentDegrees = 0;
+                                            var offset = $("#ruler").offset();
+                                            var center_x = (offset.left) + ($("#ruler").width() / 2);
+                                            var center_y = (offset.top) + ($("#ruler").height() / 2);
+                                            console.log(center_x, center_y);
+
+                                            function rotateOnMouse(e) {
+                                                var mouse_x = e.pageX;
+                                                var mouse_y = e.pageY;
+                                                var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+                                                var degree = radians * (180 / Math.PI) - startingDegrees + lastDegrees;
+                                                currentDegrees = degree;
+                                                // console.log(degree)
+
+                                                $("#ruler").css('-moz-transform-origin', '50% 95%');
+                                                $("#ruler").css('-moz-transform', 'rotate(' + -degree + 'deg)');
+                                                $("#ruler").css('-webkit-transform-origin', '50% 95%');
+                                                $("#ruler").css('-webkit-transform', 'rotate(' + -degree + 'deg)');
+                                                $("#ruler").css('-o-transform-origin', '50% 95%');
+                                                $("#ruler").css('-o-transform', 'rotate(' + -degree + 'deg)');
+
+                                                let miliSecond = new Date();
+                                                miliSecond = miliSecond.getTime() - itemstart.getTime();
+                                                console.log(miliSecond);
+                                                if (typeof pageName == "string") {
+                                                    tmpRecordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + "_1;id:ruler@XX@degree@XX@" + -degree + "@XX@" + miliSecond + ";" + "}@xx@";
+                                                } else {
+                                                    recordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + ";id:ruler@XX@degree@XX@" + -degree + ";" + miliSecond + ";" + "}@xx@";
+                                                }
+                                                if (typeof recordStr != "undefined") {
+                                                    recordStr = recordStr + tmpRecordStr[0];
+                                                } else {
+                                                    recordStr = tmpRecordStr[0];
+                                                }
+                                            }
+
+                                            $('#arrow_rotate').mousedown(function (e) {
+                                                e.preventDefault();
+
+                                                var mouse_x = e.pageX;
+                                                var mouse_y = e.pageY;
+                                                offset = $("#ruler").offset();
+                                                center_x = (offset.left) + ($("#protractor").width() / 2);
+                                                center_y = (offset.top) + ($("#protractor").height() / 2);
+
+                                                $("#ruler").css('transform-origin', '50% 95%');
+                                                $("#obj_ruler").draggable("disable");
+
+                                                console.log("mouse_x:" + mouse_x + "," + "mouse_y:" + mouse_y);
+                                                var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+                                                startingDegrees = radians * (180 / Math.PI);
+                                                $(document).bind('mousemove.rotateImg', function (e2) {
+                                                    rotateOnMouse(e2, $('#obj_protractor'));
+                                                });
+                                            });
+
+                                            $('#arrow_rotate').mousedown(function (e) {
+                                                e.preventDefault();
+                                                $('#arrow_rotate').css("background-image", "url('../images/arrow_hover.png')")
+                                                $("#obj_ruler").draggable("disable");
+                                                $(document).bind('mousemove.rotateImg', function (e2) {
+                                                    rotateOnMouse(e2, $('#obj_ruler'));
+                                                });
+                                            });
+
+                                            $(document).mouseup(function (e) {
+                                                $("#obj_ruler").draggable("enable");
+
+                                                $('#arrow_rotate').css("background-image", "url('../images/arrow_unhover.png')");
+                                                lastDegrees = currentDegrees;
+                                                $(document).unbind('mousemove.rotateImg');
+
+                                            });
+                                        }
+
+                                        function drawLine() {
+                                            $("#clear").show();
+                                            var drawLine = false;
+
+                                            var theCanvas = document.getElementById('canvas');
+                                            var finalPos = {
+                                                x: 0,
+                                                y: 0
+                                            };
+                                            var startPos = {
+                                                x: 0,
+                                                y: 0
+                                            };
+                                            var ctx = theCanvas.getContext('2d');
+                                            // theCanvas.width = 420;
+                                            // theCanvas.height = 300;
+
+                                            var canvasOffset = $('#canvas').offset();
+
+                                            function line(cnvs) {
+                                                if ((startPos.x == 0 && startPos.y == 0) || (finalPos.x == 0 && finalPos.y == 0)) {
+                                                    return;
+                                                }
+                                                cnvs.beginPath();
+                                                cnvs.moveTo(startPos.x, startPos.y);
+                                                cnvs.lineTo(finalPos.x, finalPos.y);
+                                                cnvs.stroke();
+
+                                                let miliSecond = new Date();
+                                                miliSecond = miliSecond.getTime() - itemstart.getTime();
+                                                console.log(miliSecond);
+                                                if (typeof pageName == "string") {
+                                                    tmpRecordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + "_1;move:" + startPos.x + "@XX@" + startPos.y + "line:" + finalPos.x + "@XX@" + finalPos.y + ";" + miliSecond + ";" + "}@xx@";
+                                                } else {
+                                                    recordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + ";move:" + startPos.x + "@XX@" + startPos.y + "line:" + finalPos.x + "@XX@" + finalPos.y + ";" + miliSecond + ";" + "}@xx@";
+                                                }
+                                                if (typeof recordStr != "undefined") {
+                                                    recordStr = recordStr + tmpRecordStr[0];
+                                                } else {
+                                                    recordStr = tmpRecordStr[0];
+                                                }
+                                            }
+
+                                            function clearCanvas() {
+
+                                                ctx.clearRect(0, 0, theCanvas.width, theCanvas.height);
+
+                                            }
+
+                                            $('#canvas').mousemove(function (e) {
+                                                if (drawLine === true) {
+                                                    finalPos = {
+                                                        x: e.pageX - canvasOffset.left,
+                                                        y: e.pageY - canvasOffset.top
+                                                    };
+                                                    clearCanvas();
+                                                    line(ctx);
+                                                }
+                                            });
+
+                                            $('#canvas').mousedown(function (e) {
+                                                if (draw_x_y) { return; }
+                                                drawLine = true;
+                                                ctx.strokeStyle = 'blue';
+                                                ctx.lineWidth = 5;
+                                                ctx.lineCap = 'round';
+                                                ctx.beginPath();
+                                                startPos = {
+                                                    x: e.pageX - canvasOffset.left,
+                                                    y: e.pageY - canvasOffset.top
+                                                };
+                                            });
+
+                                            $(window).mouseup(function () {
+
+                                                console.log("1232")
+                                                console.log(startPos.x, startPos.y)
+                                                console.log(finalPos.x, finalPos.y)
+                                                if ((parseInt(startPos.x) >= 445 && parseInt(startPos.x) <= 460) &&
+                                                        (parseInt(finalPos.x) >= 625 && parseInt(finalPos.x) <= 645)) {
+                                                        if ((parseInt(startPos.y) >= 270 && parseInt(startPos.y) <= 280) &&
+                                                            (parseInt(finalPos.y) >= 45 && parseInt(finalPos.y) <= 65)) {
+                                                            console.log("可以往下一題摟！");
+                                                            draw_x_y = true;
+                                                            // return respons("可以往下一題摟！");
+                                                        }
+                                                    }
+
+                                                    if ((parseInt(startPos.x) >= 620 && parseInt(startPos.x) <= 630) &&
+                                                            (parseInt(finalPos.x) >= 445 && parseInt(finalPos.x) <= 460)) {
+                                                            if ((parseInt(startPos.y) >= 50 && parseInt(startPos.y) <= 65) &&
+                                                                (parseInt(finalPos.y) >= 270 && parseInt(finalPos.y) <= 280)) {
+                                                                console.log("可以往下一題摟！");
+                                                                draw_x_y = true;
+                                                                // return respons("可以往下一題摟！");
+                                                            }
+                                                        }
+                                                if ((parseInt(startPos.x) >= 690 && parseInt(startPos.x) <= 710) &&
+                                                    (parseInt(finalPos.x) >= 510 && parseInt(finalPos.x) <= 525)) {
+                                                    if ((parseInt(startPos.y) >= 210 && parseInt(startPos.y) <= 225) &&
+                                                        (parseInt(finalPos.y) >= 430 && parseInt(finalPos.y) <= 450)) {
+                                                        console.log("可以往下一題摟！");
+                                                        draw_x_y = true;
+                                                        // return respons("可以往下一題摟！");
+                                                    }
+                                                }
+                                                if ((parseInt(finalPos.x) >= 690 && parseInt(finalPos.x) <= 710) &&
+                                                    (parseInt(startPos.x) >= 510 && parseInt(startPos.x) <= 525)) {
+                                                    if ((parseInt(finalPos.y) >= 210 && parseInt(finalPos.y) <= 225) &&
+                                                        (parseInt(startPos.y) >= 430 && parseInt(startPos.y) <= 450)) {
+                                                        console.log("可以往下一題摟！");
+                                                        draw_x_y = true;
+                                                        // return respons("可以往下一題摟！");
+                                                    }
+                                                }
+                                                // clearCanvas();
+                                                // Replace with var that is second canvas
+                                                line(ctx);
+                                                finalPos = {
+                                                    x: 0,
+                                                    y: 0
+                                                };
+                                                startPos = {
+                                                    x: 0,
+                                                    y: 0
+                                                };
+                                                drawLine = false;
+
+
+                                            });
+                                            $("#clear").click(function () {
+                                                draw_x_y = false;
+                                                ctx.clearRect(0, 0, theCanvas.width, theCanvas.height);
+                                            })
+                                        }
+
+                                        function transCSSdeg(elem) {
+                                            let el = document.getElementById(elem);
+                                            let st = window.getComputedStyle(el, null);
+                                            let tr = st.getPropertyValue("transform");
+
+
+                                            console.log('Matrix: ' + tr);
+
+                                            if (tr == "none") {
+                                                return;
+                                            }
+
+                                            let values = tr.split('(')[1];
+                                            values = values.split(')')[0];
+                                            values = values.split(',');
+                                            let a = values[0];
+                                            let b = values[1];
+                                            let c = values[2];
+                                            let d = values[3];
+
+                                            let scale = Math.sqrt(a * a + b * b);
+
+                                            let sin = b / scale;
+                                            let angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+
+                                            console.log('Rotate: ' + angle + 'deg');
+                                            return angle;
+                                        }
+
+                                        function getPositions(box) {
+                                            var $box = document.getElementById(box);
+                                            // console.log($box)
+                                            var boxElem = $box.getBoundingClientRect();
+                                            return boxElem;
+                                        }
+
+                                        function checkCollisions(elem, elem2) {
+                                            // var box = $("right_point")[0];
+                                            var rect1 = getPositions(elem);
+                                            var rect2 = getPositions(elem2);
+                                            var overlap = !(rect1.right < rect2.left ||
+                                                rect1.left > rect2.right ||
+                                                rect1.bottom < rect2.top ||
+                                                rect1.top > rect2.bottom);
+                                            console.log(overlap);
+                                            return overlap;
+                                        }
+    </script>
+    <script src="../js/pvc_script.js"></script>
+</body>
+
+</html>
