@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title id="title">protractor</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="jquery.ui.touch-punch.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+                <div id="obj_protractor">
+                    <div id="protractor" class="protractor">
+                        <div id="arrow_rotate"></div>
+                    </div>
+            </div>
+
+    <style>
+       
+
+        .protractor {
+            cursor: move;
+            background: url(images/protractor2.png) no-repeat;
+            width: 565px;
+            height: 296px;
+        }
+
+        #arrow_rotate {
+            background: url('images/arrow_unhover.png') no-repeat;
+            width: 130px;
+            height: 30px;
+            position: relative;
+            top: 260px;
+            left: 500px;
+            background-size: 100%;
+            transform: rotate(100deg);
+        }
+
+        #arrow_rotate:hover,
+        #arrow_rotate:active {
+            background-image: url('images/arrow_hover.png');
+        }
+    </style>
+    <script>
+        var rotateVal = 0;
+        protractor_bool = false;
+
+        $("#obj_protractor").draggable();
+        $(document).ready(function () {
+            var startingDegrees = 0, lastDegrees = 0, currentDegrees = 0;
+            var offset = $("#protractor").offset();
+            var center_x = (offset.left) + ($("#protractor").width() / 2);
+            var center_y = (offset.top) + ($("#protractor").height() / 2);
+            console.log(center_x, center_y);
+
+            function rotateOnMouse(e) {
+                var mouse_x = e.pageX;
+                var mouse_y = e.pageY;
+                var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+                var degree = radians * (180 / Math.PI) - startingDegrees + lastDegrees;
+                currentDegrees = degree;
+
+                $("#protractor").css('-moz-transform-origin', '50% 95%');
+                $("#protractor").css('-moz-transform', 'rotate(' + -degree + 'deg)');
+                $("#protractor").css('-webkit-transform-origin', '50% 95%');
+                $("#protractor").css('-webkit-transform', 'rotate(' + -degree + 'deg)');
+                $("#protractor").css('-o-transform-origin', '50% 95%');
+                $("#protractor").css('-o-transform', 'rotate(' + -degree + 'deg)');
+
+            }
+
+            $('#arrow_rotate').mousedown(function (e) {
+                e.preventDefault();
+                $("#obj_protractor").draggable("disable");
+                var mouse_x = e.pageX;
+                var mouse_y = e.pageY;
+                console.log("mouse_x:" + mouse_x + "," + "mouse_y:" + mouse_y);
+                var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+                startingDegrees = radians * (180 / Math.PI);
+                $(document).bind('mousemove.rotateImg', function (e2) {
+                    rotateOnMouse(e2, $('#obj_protractor'));
+                });
+            });
+
+            $('#arrow_rotate').mousedown(function (e) {
+                e.preventDefault();
+                $('#arrow_rotate').css("background-image", "url('images/arrow_hover.png')")
+                $("#obj_protractor").draggable("disable");
+                $(document).bind('mousemove.rotateImg', function (e2) {
+                    rotateOnMouse(e2, $('#obj_protractor'));
+                });
+            });
+
+            $(document).mouseup(function (e) {
+                $("#obj_protractor").draggable("enable");
+                $('#arrow_rotate').css("background-image", "url('images/arrow_unhover.png')")
+                lastDegrees = currentDegrees;
+                $(document).unbind('mousemove.rotateImg');
+            });
+        });
+
+        function getDeg(id) {
+            var el = document.getElementById(id);
+            var st = window.getComputedStyle(el, null);
+            var tr = st.getPropertyValue("-webkit-transform") ||
+                st.getPropertyValue("-moz-transform") ||
+                st.getPropertyValue("-ms-transform") ||
+                st.getPropertyValue("-o-transform") ||
+                st.getPropertyValue("transform") ||
+                "FAIL";
+
+            console.log('Matrix: ' + tr);
+
+            if (tr != "none") {
+                var values = tr.split('(')[1].split(')')[0].split(',');
+                var a = values[0];
+                var b = values[1];
+                var c = values[2];
+                var d = values[3];
+                var scale = Math.sqrt(a * a + b * b);
+
+            }
+
+            // arc sin, convert from radians to degrees, round
+            var sin = b / scale;
+            // next line works for 30deg but not 130deg (returns 50);
+            var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+            console.log('Rotate: ' + angle + 'deg');
+            return angle;
+        }
+    </script>
+</body>
+
+</html>
