@@ -1,9 +1,6 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var radius = canvas.height / 2;
-//var sec_i = 1;
-//var min_i = (1/60);
-//var hour_i = (1/720);
 var min = 0;
 var sec_i = 0;
 var sec_i2 = 0;
@@ -135,25 +132,6 @@ function drawHand(ctx, pos, length, width, color) {
 }
 
 $("#increase_Sec").click(function() {
-    if ($(this).attr('disabled') != 'disabled') {
-        clickCount += 1;
-        let miliSecond = new Date();
-        miliSecond = miliSecond.getTime() - itemstart.getTime();
-        console.log(miliSecond);
-
-        if (typeof pageName == "string") {
-            tmpRecordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + "_1;id:increase_Sec@XX@" + clickCount + "@XX@" + miliSecond + ";" + "}@xx@";
-            console.count(tmpRecordStr[0])
-        } else {
-            console.log(ui.value);
-            tmpRecordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + pageName.substr(0, 8) + ";id:increase_Sec@XX@" + clickCount + "@XX@" + miliSecond + ";" + "}@xx@";
-            console.count(tmpRecordStr[0])
-        }
-        if (typeof recordStr != "undefined") { recordStr = recordStr + tmpRecordStr[0]; } else { recordStr = tmpRecordStr[0]; }
-        
-        console.count(recordStr)
-    }
-    $(this).attr("disabled", "disabled");
     to = setTimeout(function() {
         int = setInterval(function() {
             drawFace(ctx, radius);
@@ -172,63 +150,22 @@ $("#increase_Sec").click(function() {
             hour = (hour_i * Math.PI / 21600) + (min_i * Math.PI / 21600) + (sec_i * Math.PI / 21600);
             drawTimeHour(ctx, radius, hour, min_i, sec_i);
             hour_i = hour_i + (1 / 720);
-            $("#min_Text").text(min_i);
-            $("#hour_Text").text(hour_i);
+
             if (sec_i > secChkVal) {
                 secAround++;
                 $("#sec_Text").text(secAround);
                 secChkVal = secChkVal + 60;
                 clearInterval(int);
                 $("#increase_Sec").removeAttr("disabled");
-
-                // if ($(".title").text() == "能力指標：5-n-15 互動二") {
-                //     if ($("#sec_Text").text() == '2') {
-                //         $("#promptText").show();
-                //     }
-                // }
-
-                switch ($(".title").text()) {
-                    case "能力指標：5-n-15 互動一":
-                        if ($("#sec_Text").text() == 1) {
-                            $("#promptText").show();
-                        }
-                        break;
-                    case "能力指標：5-n-15 互動二":
-                        // if ($("#sec_Text").text() == '2') {
-                        //     $("#promptText").show();
-                        // }
-                        break;
-                }
             }
         }, 60);
     }, 60);
-    // drawTimeSec(ctx, radius, sec_i);
-
 });
 
 
 
 
 $("#increase_Min").click(function() {
-    if ($(this).attr('disabled') != 'disabled') {
-        clickCount += 1;
-        let miliSecond = new Date();
-        miliSecond = miliSecond.getTime() - itemstart.getTime();
-        console.log(miliSecond);
-
-        if (typeof pageName == "string") {
-            tmpRecordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + folderName + "_1;id:increase_Min@XX@" + clickCount + "@XX@" + miliSecond + ";" + "}@xx@";
-            console.count(tmpRecordStr[0])
-        } else {
-            console.log(ui.value);
-            tmpRecordStr[0] = "@xx@{indicateId:" + $('#title').text() + ";item_num:" + pageName.substr(0, 8) + ";id:increase_Min@XX@" + clickCount + "@XX@" + miliSecond + ";" + "}@xx@";
-            console.count(tmpRecordStr[0])
-        }
-        if (typeof recordStr != "undefined") { recordStr = recordStr + tmpRecordStr[0]; } else { recordStr = tmpRecordStr[0]; }
-        
-        console.count(recordStr)
-    }
-    $(this).attr("disabled", "disabled");
     to = setTimeout(function() {
         int = setInterval(function() {
             drawFace(ctx, radius);
@@ -238,8 +175,6 @@ $("#increase_Min").click(function() {
             var sec = (sec_i * Math.PI / 30);
             drawTimeSec(ctx, radius, sec);
             sec_i = sec_i + 5;
-            // sec_i2 = sec_i2 + 1;
-            //min
             console.log(sec_i, secChkVal)
             if (sec_i > secChkVal) {
                 min_i = min_i + 1;
@@ -253,30 +188,14 @@ $("#increase_Min").click(function() {
             var hour = (hour_i * Math.PI / 21600) + (min_i * Math.PI / 21600) + (sec_i * Math.PI / 21600);
             drawTimeHour(ctx, radius, hour, min_hour, sec);
             hour_i = hour_i + (1 / 720);
-            // hour_i = hour_i + (5 / 60);
 
             if (min_i == minChkVal) {
 
                 minChkVal = minChkVal + 60;
                 clearInterval(int);
 
-                // drawTimeSec(ctx,radius, sec);
-                $("#min_Text").text(min_count);
-                $("#increase_Min").removeAttr("disabled");
                 drawTimeSec(ctx, radius, sec);
                 min_count = min_count + 1;
-            }
-            switch ($(".title").text()) {
-                case "能力指標：5-n-15 互動四":
-                    if ($("#min_Text").text() == 1) {
-                        $("#promptText").show();
-                    }
-                    break;
-                case "能力指標：5-n-15 互動二":
-                    // if ($("#sec_Text").text() == '2') {
-                    //     $("#promptText").show();
-                    // }
-                    break;
             }
         }, 20);
     }, 20);
